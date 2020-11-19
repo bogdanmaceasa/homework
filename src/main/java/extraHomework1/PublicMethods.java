@@ -9,7 +9,7 @@ public class PublicMethods {
     }
 
 
-    public static double inchConverter(float a) {
+    public static float inchConverter(float a) {
 
         return (a * 0.0254);
     }
@@ -23,7 +23,7 @@ public class PublicMethods {
 
     public static boolean isPosivite(int a) {
 
-        return (a >= 0);
+        return (a > 0);
     }
 
 
