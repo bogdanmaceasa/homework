@@ -1,7 +1,7 @@
 package tema1;
 
 // 5. Display all the prime numbers lower than a given number, read the number from keyboard
-//     FASTEST METHOD ->
+
 
 import java.util.Scanner;
 
@@ -34,10 +34,7 @@ public class PrimesLowerThan {
 //                continue;
 //            } else {
 //                boolean isPrime = true;
-//                for (int j = 3; j <= (i / 2); j++) {
-//                    if (((j / 2) > 1) && ((j % 2) == 0)) {
-//                        continue;
-//                    }
+//                for (int j = 3; j <= (i / 2); j+2) {
 //                    if ((i % j) == 0) {
 //                        isPrime = false;
 //                        break;
@@ -151,16 +148,8 @@ public class PrimesLowerThan {
         System.out.println();
         System.out.print(" " + "1");
 
-
-        for (int i = 2; i <= num; i++) {
-            int fact = 1;
-            for (int j = 1; j < i; j++) {
-                fact *= j;
-            }
-            if ((fact + 1) % i == 0)
-                System.out.print(" " + i);
-
-        }
+        for (int i = 2; i <= num; i++)
+            System.out.println(PublicMethods.wilsonsTheorem(i) + " ");
 
 
     }

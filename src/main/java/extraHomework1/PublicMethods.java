@@ -9,7 +9,7 @@ public class PublicMethods {
     }
 
 
-    public static float inchConverter(float a) {
+    public static double inchConverter(float a) {
 
         return (a * 0.0254);
     }

@@ -7,23 +7,33 @@ import java.util.Scanner;
 
 public class IsPalindrom {
 
+
+/*
+    VERSION 1
+=================================================================================================================
+
+*/
     public static void main(String[] args) {
 
         Scanner myNumber = new Scanner(System.in);
         System.out.println("enter a number");
         int num = myNumber.nextInt();
-        int number, number2 = num;
-        int length = 0;
+
+        if (PublicMethods.palindrom(num))
+            System.out.println("number is a palindrom");
+        else System.out.println("number is not a palindrom");
+
 
 /*
-    VERSION 1
+    VERSION 2
     ==================================================================================================================
 
  */
 
-
 //      find the length of the number
-//
+
+//        int number, number2 = num;
+//        int length = 0;
 //        while (num >= 1) {
 //            num /= 10;
 //            length++;
@@ -55,21 +65,7 @@ public class IsPalindrom {
 //            System.out.println("number is a palindrom");
 //        }
 
-/*
-    VERSION 2
-    ==================================================================================================================
-
- */
-        int reverseNumber = 0;
-        while (number2 >= 1) {
-            reverseNumber = reverseNumber * 10 + number2 % 10;
-            number2 /= 10;
-
-        }
-        if (reverseNumber == num)
-            System.out.println("number is a palindrom");
-        else System.out.println("number is not a palindrom");
-
-
     }
+
+
 }

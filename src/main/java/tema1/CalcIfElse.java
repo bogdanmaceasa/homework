@@ -15,24 +15,12 @@ public class CalcIfElse {
         int n2 = sc.nextInt();
         System.out.println("enter the desired operation to be performed ");
         String operation = sc.next();
-        boolean validOperation = false;
-        if (operation.equals("+")) {
-            System.out.println("the sum of the two numbers is " + (n1 + n2));
-            validOperation = true;
-        } else if (operation.equals("-")) {
-            System.out.println(n1 + "minus " + n2 + " is " + (n1 - n2));
-            validOperation = true;
-        } else if (operation.equals("*")) {
-            System.out.println(n1 + "times " + n2 + " is " + (n1 * n2));
-            validOperation = true;
-        } else if (operation.equals("/")) {
-            System.out.println(n1 + "divided by " + n2 + " is " + (n1 / n2));
-            validOperation = true;
-        }
 
-        if (!validOperation)
-            System.out.println("Unknown calculation");
+        PublicMethods.Calculator(n1, n2, operation);
 
 
     }
+
+
 }
+

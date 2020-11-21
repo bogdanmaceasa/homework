@@ -13,32 +13,20 @@ public class RemoveDuplicates {
         int length = sc.nextInt();
         int[] array = new int[length];
         int[] arrayNoDuplicates = new int[length];
+        int newLength = 0;
 
         System.out.println("enter the elements of the array");
         for (int i = 0; i < length; i++) {
             array[i] = sc.nextInt();
         }
 
-        int newLength = 0;
-
         for (int i : array) {
-            boolean unique = true;
-
-            for (int j : arrayNoDuplicates) {
-                if (i == j) {
-                    unique = false;
-                    break;
-                }
-
-            }
-
-            if (unique) {
+            if (PublicMethods.isUnique(i, arrayNoDuplicates)) {
                 arrayNoDuplicates[newLength] = i;
                 newLength++;
             }
-
-
         }
+
         System.out.println("length of the unique array is " + newLength + " and the unique elements of the array are: ");
         for (int i = 0; i < newLength; i++) {
             System.out.print(arrayNoDuplicates[i] + " ");

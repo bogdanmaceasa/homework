@@ -19,32 +19,7 @@ public class SmallestNumber {
         for (int j = 0; j < leng; j++) {
             arrayIn[j] = sc.nextInt();
         }
-        int minNum = Integer.MAX_VALUE;
-
-/*
-        VARIANTA 1
-        =========================================================
-*/
-
-
-        for (int j : arrayIn) {
-            minNum = min(j, minNum);
-        }
-
-        System.out.println("the smallest number in the array is " + minNum);
-
-/*
-        VARIANTA 2
-        ==========================================================
-*/
-
-
-        for (int i = 0; i < leng; i++) {
-            minNum = (minNum > arrayIn[i]) ? arrayIn[i] : minNum;
-        }
-        System.out.println("the smallest number in the array is " + minNum);
-
-
+        System.out.println("the smallest number in the array is " + PublicMethods.getMinNum(arrayIn));
     }
 
 }

@@ -9,7 +9,6 @@ public class CalcRepeat {
 
         boolean newCalc = true;
 
-
         while (newCalc) {
 
             Scanner sc = new Scanner(System.in);
@@ -20,24 +19,7 @@ public class CalcRepeat {
             System.out.println("enter the desired operation to be performed ");
             String operation = sc.next();
 
-            switch (operation) {
-                case "+":
-                    System.out.println("the sum of the two numbers is " + (n1 + n2));
-                    break;
-                case "-":
-                    System.out.println(n1 + "minus " + n2 + " is " + (n1 - n2));
-                    break;
-                case "*":
-                    System.out.println(n1 + "times " + n2 + " is " + (n1 * n2));
-                    break;
-                case "/":
-                    System.out.println(n1 + "divided by " + n2 + " is " + (n1 / n2));
-                    break;
-                default:
-                    System.out.println("Unknown calculation");
-
-            }
-
+            PublicMethods.Calculator(n1,n2,operation);
 
             System.out.println("Do you want to perform another calculation? ( y / n )");
             String cont = sc.next();
