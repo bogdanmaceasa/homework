@@ -189,6 +189,7 @@ public class PublicMethods {
 
     }
 
+
     /**
      * check the smallest number in an array
      *
@@ -201,6 +202,28 @@ public class PublicMethods {
                 return false;
         }
         return true;
+    }
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                     METHODS FOR TEMA2
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    public static boolean isUniqueChar(char i, char[] array) {
+        for (char j : array) {
+            if (i == j)
+                return false;
+        }
+        return true;
+    }
+
+    public static boolean isDouplicate(int i, char[] array) {
+        for (int j=i+1; j<array.length; j++) {
+            if (array[i] == array[j])
+                return true;
+        }
+        return false;
     }
 
 }
