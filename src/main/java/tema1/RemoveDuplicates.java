@@ -24,7 +24,7 @@ public class RemoveDuplicates {
             if (PublicMethods.isUnique(i, arrayNoDuplicates)) {
                 arrayNoDuplicates[newLength] = i;
                 newLength++;
-            }
+            } 
         }
 
         System.out.println("length of the unique array is " + newLength + " and the unique elements of the array are: ");

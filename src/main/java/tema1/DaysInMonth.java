@@ -19,7 +19,9 @@ public class DaysInMonth {
 
         Scanner sc = new Scanner(System.in);
         byte month = sc.nextByte();
-
+        byte month2 = sc.nextByte();
+        String s = sc.next();
+        System.out.println(s);
         System.out.println("number of days in month " + month + " is " + monthToDays[month - 1]);
 
 

@@ -9,12 +9,16 @@ public class StringDuplicates {
 
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
-        System.out.println("enter a string");
-        String s = sc.next();
 
+        System.out.println("enter a string");
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+
+        System.out.println(s);
         int length = s.length();
         char[] strArr = s.toCharArray();
+
+
 
         char[] uniqueChar = new char[length];
         int uniquePos = 0;
@@ -27,7 +31,7 @@ public class StringDuplicates {
         }
         System.out.println("duplicate elements are");
         for ( int i=0; i<uniquePos; i++){
-            System.out.print(uniqueChar[i] + " ");
+            System.out.print("'" + uniqueChar[i] + "' ");
         }
 
 
