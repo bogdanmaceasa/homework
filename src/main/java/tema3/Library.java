@@ -1,8 +1,5 @@
 package tema3;
 
-import java.awt.print.Book;
-import java.util.Scanner;
-
 public class Library {
 
     public static void main(String[] args) {
@@ -12,12 +9,14 @@ public class Library {
 //        Scanner scan = new Scanner(System.in);
         System.out.println("\n\nWelcome to the JAVA Library of art albums and novels!");
 
-        Books book1 = new Books("Ion","Liviu Rebreanu",200);
-        Books book2 = new Books();
-        Books book3 = new Novels();
-        Books book4 = new ArtAlbums("test", "testautor", 1230, "abstract");
-        Books book5 = new Books("Serotonina", 300);
-        Books book6 = new Books("1984", "George Orwell");
+        Book book1 = new Book("Ion","Liviu Rebreanu",200);
+        Book book2 = new Book();
+        Book book3 = new Novel();
+        Book book4 = new ArtAlbums("test", "testautor", 1230, "abstract", "pristine");
+        Book book5 = new Book("Serotonina", 300);
+        Book book6 = new Book("1984", "George Orwell");
+        Book book7 = new Novel("Brave new world", "Aldous Huxley", 300 , "fiction");
+        Novel book8 = new Novel("Serlock Holmes", "Arthur Doyle", 200, "detective");
 
         System.out.println("\n\nThe books currently in the library are:\n");
 
@@ -30,6 +29,21 @@ public class Library {
 
         book6.checkOutBook();
         book5.checkOutBook();
+        book4.checkOutBook();
+
+        if(book5.isAvailable())
+            System.out.println(book5.getName() + " is available and can be read or borrowed." );
+        else System.out.println(book5.getName() + " is currently not available. Please come again!");
+
+        book4.readBook();
+        book7.readBook();
+        book8.readBook();
+
+        Book book9= (Book) book8;
+        System.out.println(book9.toString());
+        book9.readBook();
+
+        book6.returnBook();
 
 
         book2=null;

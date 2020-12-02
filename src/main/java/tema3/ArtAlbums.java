@@ -1,23 +1,30 @@
 package tema3;
 
-public class ArtAlbums extends Books {
+class ArtAlbums extends Book {
 
-    private String artType;
+    private final String artType;
+    private String paperQuality;
 
     ArtAlbums() {
         this.artType = "Unknown art type";
+        this.paperQuality = "Unchecked";
         System.out.print("It seems to be an art album.");
     }
 
 
-    ArtAlbums(String name, String author, int pagNum, String artType) {
+    ArtAlbums(String name, String author, int pagNum, String artType, String paperQuality) {
         super(name, author, pagNum);
         this.artType = artType;
+        this.paperQuality = paperQuality;
         System.out.print("It is an art album.");
     }
 
-    public void setArtType(String artType) {
-        this.artType = artType;
+    public void setPaperQuality(String paperQuality) {
+        this.paperQuality = paperQuality;
+    }
+
+    public String getPaperQuality() {
+        return paperQuality;
     }
 
     public String getArtType() {
@@ -25,9 +32,17 @@ public class ArtAlbums extends Books {
     }
 
     @Override
+    public void checkOutBook() {
+        super.checkOutBook();
+        System.out.print("Please handle with care!\n");
+    }
+
+    @Override
     public String toString() {
         return super.toString() + " is an ArtAlbum{" +
-                "artType='" + artType + '\'' +
+                "artType='" + artType + '\'' + ", paperQuality='" + paperQuality + '\'' +
                 '}';
     }
+
+
 }
