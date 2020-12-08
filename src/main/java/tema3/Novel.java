@@ -23,8 +23,6 @@ class Novel extends Book {
         System.out.print("It is a novel.\n");
     }
 
-
-
     public void setNovelType(String novelType) {
         this.novelType = novelType;
     }

@@ -1,7 +1,6 @@
 package tema3;
 
 /*
-
 Create a small application that mimics a library catalog.
 It needs to be able to:
 - add books
@@ -13,11 +12,8 @@ Books are of two kinds:
 - art albums
 They both have names and number of pages.
 
-
 Novels have type (like mystery, sf, etc.) while albums have paper quality.
-
 Model these entities (book, novel, album) with different classes and inheritance.
-
 
  */
 
