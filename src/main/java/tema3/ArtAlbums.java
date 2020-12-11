@@ -1,5 +1,7 @@
 package tema3;
 
+import java.util.Objects;
+
 class ArtAlbums extends Book {
 
     private final String artType;
@@ -44,5 +46,17 @@ class ArtAlbums extends Book {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ArtAlbums)) return false;
+        if (!super.equals(o)) return false;
+        ArtAlbums artAlbums = (ArtAlbums) o;
+        return Objects.equals(artType, artAlbums.artType) && Objects.equals(paperQuality, artAlbums.paperQuality);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), artType, paperQuality);
+    }
 }

@@ -3,58 +3,66 @@ package tema3;
 public class Library {
 
     public static void main(String[] args) {
+
         System.out.println("\n\nWelcome to the JAVA Library of art albums and novels!");
 
-        Book book1 = new Book("Ion","Liviu Rebreanu",200);
-        Book book2 = new Book();
-        Book book3 = new Novel();
-        Book book4 = new ArtAlbums("test", "testautor", 1230, "abstract", "pristine");
-        Book book5 = new Book("Serotonina", 300);
-        Book book6 = new Book("1984", "George Orwell");
-        Book book7 = new Novel("Brave new world", "Aldous Huxley", 300 , "fiction");
-        Novel book8 = new Novel("Serlock Holmes", "Arthur Doyle", 200, "detective");
-//      If and when I make the variable book# refer to something, that something will be an instance of the Book class.
+        Book[] libraryDataBase = new Book[50];
 
-        System.out.println("\n\nThe books currently in the library are:\n");
+//      we create a list of all books that are added to the library
+        libraryDataBase[0] = new Book("Ion", "Liviu Rebreanu", 200);
+        libraryDataBase[1] = new Book();
+        libraryDataBase[2] = new Novel();
+        libraryDataBase[3] = new ArtAlbums("test", "testautor", 1230, "abstract", "pristine");
+        libraryDataBase[4] = new Book("Serotonina", 300);
+        libraryDataBase[5] = new Book("1984", "George Orwell");
+        libraryDataBase[6] = new Novel("Brave new world", "Aldous Huxley", 300, "fiction");
+        libraryDataBase[7] = new Novel("Serlock Holmes", "Arthur Doyle", 200, "detective");
 
-//        System.out.println(book1.toString());
-//        System.out.println(book2.toString());
-//        System.out.println(book3.toString());
-//        System.out.println(book4.toString());
-//        System.out.println(book5.toString());
-//        System.out.println(book6.toString());
+        System.out.println("\n\nThe valid books listed in the library are:\n");
 
-        book6.checkOutBook();
-        book4.checkOutBook();
+        int indexOfValidBooks = 0;
+        // all valid books in the library should have a book name, all other information is optional
+        // book name and author name cannot be changed
+        // book number of pages can be edited - maybe after the first read ?
 
-        if(book5.isAvailable())
-            System.out.println(book5.getName() + " is available and can be read or borrowed." );
-        else System.out.println(book5.getName() + " is currently not available. Please come again!");
+        for (Book book : libraryDataBase) {
+            if (book != null)
+                if ( book.getName() != "Unnamed book") { /*!book.equals(new Book() creates a new instance for each element that is not null which gets output at the constructor level*/
+                    System.out.println(book.toString());
+                    indexOfValidBooks++;
+                }
 
-        book4.readBook();
-        book8.readBook();
-//        System.out.println(book7.getNovelType()); // book8 cannot access methods from Novel - it is a Reference of Book
+        }
+
+        System.out.println();
+        libraryDataBase[4].checkOutBook();
+        libraryDataBase[5].checkOutBook();
+        System.out.println();
+        if (libraryDataBase[4].isAvailable())
+            System.out.println(libraryDataBase[4].getName() + " is available and can be read or borrowed.");
+        else System.out.println(libraryDataBase[4].getName() + " is currently not available. Please come again!");
+        System.out.println();
+        libraryDataBase[4].readBook();
+        libraryDataBase[7].readBook();
+        System.out.println();
+//        libraryBookList[7].getNovelType();
 
 //      after cast you can access the method from Novel class
-        Novel book9= (Novel) book7;
-        System.out.println("novel type " + book9.getNovelType());;
+        System.out.println();
+        Novel book9 = (Novel) libraryDataBase[7];
+        System.out.println("novel type " + book9.getNovelType());
+        ;
         System.out.println(book9.toString());
-
+        System.out.println();
 //      datatype of reference is changed in casting. it points to the same instance - which is a Novel object.
-        Book book10= (Book) book8;
+        Book book10 = (Book) libraryDataBase[7];
         System.out.println(book10.toString());
-//        System.out.println(book8.getNovelType()); // book8 is a reference of Novel Class
+//        System.out.println(book9.getNovelType()); // book9 is a reference of Novel Class
 //        System.out.println(book10.getNovelType()); // book10 is a reference of Book Class, it does not have access to getNovelType method
-
-//        Novel bookNovelRef = (Novel) book1; // error ?!
+        System.out.println();
+//        Novel bookNovelRef = (Novel) libraryBookList[0]; // error ?!
 //        System.out.println(bookNovelRef.getNovelType());
-//        System.out.println(book6.getNovelType());
-//        System.out.println(book1.toString());
 //        System.out.println(bookNovelRef.toString());
-
-        book6.returnBook();
-
-        book2=null;
 
     }
 }

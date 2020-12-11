@@ -18,6 +18,8 @@ Model these entities (book, novel, album) with different classes and inheritance
  */
 
 
+import java.util.Objects;
+
 class Book implements BookActionsTemplate {
 
     private final String bookName; // final instance variable that needs to be assigned a value in all constructors
@@ -61,7 +63,7 @@ class Book implements BookActionsTemplate {
     @Override
     public void checkOutBook() {
         isAvailable = false;
-        System.out.print("\nThe book " + this.bookName + " has has been checked out and is now unavailable!");
+        System.out.println("The book " + this.bookName + " has has been checked out and is now unavailable!");
     }
 
     @Override
@@ -90,8 +92,10 @@ class Book implements BookActionsTemplate {
         return isAvailable;
     }
 
-    public void readBook(){
-        System.out.println("Someone is reading, please be quiet while in the library!");
+    public void readBook() {
+        if (isAvailable)
+            System.out.println("Someone is reading, please be quiet while in the library!");
+        else System.out.println("You want to read " + this.getName() + " but it is not available");
     }
 
     @Override
@@ -103,5 +107,16 @@ class Book implements BookActionsTemplate {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Book)) return false;
+        Book book = (Book) o;
+        return pagNum == book.pagNum && isAvailable == book.isAvailable && bookName.equals(book.bookName) && author.equals(book.author);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(bookName, author, pagNum, isAvailable);
+    }
 }
