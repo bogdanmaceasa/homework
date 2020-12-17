@@ -60,9 +60,6 @@ public class Library {
 //        System.out.println(book9.getNovelType()); // book9 is a reference of Novel Class
 //        System.out.println(book10.getNovelType()); // book10 is a reference of Book Class, it does not have access to getNovelType method
         System.out.println();
-//        Novel bookNovelRef = (Novel) libraryBookList[0]; // error ?!
-//        System.out.println(bookNovelRef.getNovelType());
-//        System.out.println(bookNovelRef.toString());
 
     }
 }
