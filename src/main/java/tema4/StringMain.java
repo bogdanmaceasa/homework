@@ -36,7 +36,19 @@ public class StringMain {
 //
 //        StringManipulation.reverseWords("this is a test string");
 
-          StringManipulation.isRotate("abcd","bcda");
+//          StringManipulation.isRotate("abcd","bcda");
 
+//          StringManipulation.isPalindrome("adddda");
+
+//        System.out.println(StringManipulation.longestNonRepeat("aaa123asab123acdaasa123a"));
+
+//        StringManipulation.longestPalindrome("2121aaabbbaaa");
+
+//        StringManipulation.removeDuplicateChars("123mase123ansd3");
+
+//        StringManipulation.removeGivenChar("ana are mere", 'a');
+
+        String[] words = {"wor", "wor", "is", "apple", "wait", "play", "music", "play", "wor", "play"};
+        System.out.println(StringManipulation.wordOccurrence(words));
     }
 }

@@ -14,12 +14,13 @@ package tema4;
         Write a method to convert a given String into int like the Integer.parseInt(). - DONE
         Write a method to reverse words in a given sentence without using any library method. - DONE
         Write a method to check if two strings are a rotation of each other. - DONE
-        Write a method to check if a given string is a palindrome.
-        Write a method to find the length of the longest substring without repeating characters.
-        Given string str, write a method to find the longest palindromic substring in str.
-        Write a method to remove the duplicate character from String.
-        Write a method to remove a given character from String.
-        Given an array of strings, find the most frequent word in a given array, I mean, the string that appears the most in the array. In the case of a tie, the string that is the smallest (lexicographically) ​is printed.
+        Write a method to check if a given string is a palindrome. - DONE
+        Write a method to find the length of the longest substring without repeating characters. - DONE ?!
+        Given string str, write a method to find the longest palindromic substring in str. - DONE
+        Write a method to remove the duplicate character from String. - DONE
+        Write a method to remove a given character from String. - DONE
+        Given an array of strings, find the most frequent word in a given array, I mean, the string that appears the most in the array. - DONE
+        In the case of a tie, the string that is the smallest (lexicographically) is printed.
 */
 
 import java.util.Arrays;
@@ -248,7 +249,7 @@ public class StringManipulation {
     public static void isRotate(String stringA, String stringB) {
 
 
-        if ( stringA.length() != stringB.length() ) {
+        if (stringA.length() != stringB.length()) {
             System.out.println("Strings are not equal in size");
             return;
         }
@@ -274,9 +275,145 @@ public class StringManipulation {
     }
 
     //Write a method to check if a given string is a palindrome.
-    public static void isPalindrome(String string){
+    public static void isPalindrome(String string) {
 
+        String firstHalf = string.substring(0, string.length() / 2);
+        String secondHalf;
+        if (string.length() % 2 == 0)
+            secondHalf = string.substring(string.length() / 2);
+        else secondHalf = string.substring(string.length() / 2 + 1);
 
+        System.out.println(firstHalf);
+        System.out.println(secondHalf);
+        if (firstHalf.equals(reverse(secondHalf)))
+            System.out.println("is palindrome");
+        else System.out.println("is not palindrome");
+
+    }
+
+    //Write a method to find the length of the longest substring without repeating characters.
+    public static int longestNonRepeat(String string) {
+
+        char[] stringToChars = new char[0];
+//        stringToChars[0] = string.charAt(0);
+        int count = 1;
+        int max = 1;
+        for (int i = 0; i < string.length(); i++) {
+            boolean isPresent = false;
+            for (int j = 0; j < stringToChars.length; j++)
+                if (string.charAt(i) == stringToChars[j]) {
+                    isPresent = true;
+                    max = max < count ? count : max;
+                    count = 1;
+                }
+            if (!isPresent) {
+                stringToChars = addCharToArray(stringToChars, string.charAt(i));
+                count++;
+            }
+        }
+        return max;
+    }
+
+    //Given string str, write a method to find the longest palindromic substring in str.
+    public static void longestPalindrome(String string) {
+        // method covers all types of palindromes with odd and even number of letters in the palindrome.
+
+        int maxLength = 0, indexSaved = 0, index = 0, indexSaved1 = 0, maxLength1 = 0;
+        for (int i = 0; i < string.length() - 1; i++) {
+            int length = 0;
+            for (int j = 0; j <= Math.min(string.substring(0, i).length(), string.substring(i + 2).length()); j++) {
+                if (string.charAt(i - j) == string.charAt(i + 1 + j)) {
+                    index = i;
+                    length++;
+                } else break;
+            }
+            if (maxLength < length) {
+                maxLength = length;
+                indexSaved = index;
+            }
+        }
+
+        for (int i = 0; i < string.length() - 2; i++) {
+            int length = 0;
+            for (int j = 0; j <= Math.min(string.substring(0, i).length(), string.substring(i + 3).length()); j++) {
+                if (string.charAt(i - j) == string.charAt(i + 2 + j)) {
+                    index = i;
+                    length++;
+                } else break;
+            }
+            if (maxLength1 < length) {
+                maxLength1 = length;
+                indexSaved1 = index;
+            }
+        }
+        if (maxLength1 > maxLength) {
+            System.out.println("length of the palindrom substring is: " + (maxLength1 * 2 + 1));
+            if ((indexSaved1 + maxLength1 + 1) == (string.length()) - 1)
+                System.out.println(string.substring(indexSaved1 - maxLength1 + 1));
+            else System.out.println(string.substring(indexSaved1 - maxLength1 + 1, indexSaved1 + maxLength1 + 2));
+        } else if ((indexSaved + maxLength) == (string.length()) - 1) {
+            System.out.println("length of the palindrom substring is: " + maxLength * 2);
+            System.out.println(string.substring(indexSaved - maxLength + 1));
+        } else {
+            System.out.println("length of the palindrom substring is: " + maxLength * 2);
+            System.out.println(string.substring(indexSaved - maxLength + 1, indexSaved + maxLength + 1));
+        }
+
+    }
+
+    //Write a method to remove the duplicate character from String.
+    public static void removeDuplicateChars(String string) {
+        char[] stringToChars = new char[0];
+        for (int i = 0; i < string.length(); i++) {
+            boolean isPresent = false;
+            for (int j = 0; j < stringToChars.length; j++)
+                if (string.charAt(i) == stringToChars[j]) {
+                    isPresent = true;
+                }
+            if (!isPresent) {
+                stringToChars = addCharToArray(stringToChars, string.charAt(i));
+            }
+        }
+        System.out.print("string with no duplicate characters is: ");
+        for (char c : stringToChars) {
+            System.out.print(c);
+        }
+    }
+
+    //Write a method to remove a given character from String.
+    public static void removeGivenChar(String string, char c) {
+
+        while (string.indexOf(c) >= 0) {
+            if (string.indexOf(c) == 0)
+                string = string.substring(1);
+            else if (string.indexOf(c) == string.length() - 1)
+                string = string.substring(0, string.length() - 1);
+            else
+                string = string.substring(0, string.indexOf(c)).concat(string.substring(string.indexOf(c) + 1));
+        }
+
+        System.out.println(string);
+    }
+
+    //Given an array of strings, find the most frequent word in a given array, I mean, the string that appears the most in the array.
+    public static String wordOccurrence(String[] string) {
+        int highestCount = 0, posOfWord = 0;
+        for (int i = 0; i < string.length; i++) {
+            int count = 0;
+            for (int j = i; j < string.length; j++) {
+                if (string[i].equals(string[j]))
+                    count++;
+            }
+            if (highestCount < count) {
+                posOfWord = i;
+                highestCount = count;
+            } else if (highestCount == count) {
+                if (string[posOfWord].length() > string[i].length())
+                    posOfWord = i;
+            }
+        }
+
+        return string[posOfWord];
     }
 
 
@@ -314,5 +451,14 @@ public class StringManipulation {
         return index;
     }
 
+    private static char[] addCharToArray(char[] array1, char a) {
+
+        char[] array2 = new char[array1.length + 1];
+        for (int i = 0; i < array1.length; i++) {
+            array2[i] = array1[i];
+        }
+        array2[array1.length] = a;
+        return array2;
+    }
 
 }
