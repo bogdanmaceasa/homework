@@ -314,6 +314,27 @@ public class StringManipulation {
         return max;
     }
 
+//    public static String longestNonRepeatTwo ( String string) {
+//        // string = "abcbabcefghigdae"
+//        // string = "bcbabcefghigdae"
+//        for (int i = 0; i < string.length() - 1; i++) {
+//            int length = 0;
+//            for (int j = i + 1; j < string.length(); j++) {
+//                String test = string.substring(j,j+1);
+//
+//                if (string.substring(0, j).contains(String.valueOf(string.charAt(j)))) {
+//
+//                    break;
+//                } else {
+//                    length++;
+//                    int  position = i;
+//                }
+//
+//                return etc;
+//            }
+//        }
+//    }
+
     //Given string str, write a method to find the longest palindromic substring in str.
     public static void longestPalindrome(String string) {
         // method covers all types of palindromes with odd and even number of letters in the palindrome.
@@ -415,7 +436,6 @@ public class StringManipulation {
 
         return string[posOfWord];
     }
-
 
 //    =========================== PRIVATE METHODS USED FOR BUSINESS LOGIC IN METHODS ABOVE ============================
 
