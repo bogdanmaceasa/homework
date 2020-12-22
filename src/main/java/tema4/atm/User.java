@@ -1,10 +1,10 @@
 package tema4.atm;
 
-import java.sql.SQLOutput;
-import java.util.Date;
+import lombok.ToString;
 import java.util.Objects;
 import java.util.Scanner;
 
+@ToString
 public class User {
 
     private Card[] cards = new Card[0];
@@ -20,40 +20,59 @@ public class User {
         this.lastName = lastName;
         this.userName = firstName + lastName;
         this.password = password;
-        this.bankAccounts[0] = new BankAccount("123123uy234v12");
+        this.bankAccounts[0] = new BankAccount();
+        this.numberOfBankAccounts++;
     }
 
-    public void addCard(Date expirationDate, String ownerName, String cardNumber, String iban) {
-        if (isAuthenticated) {
-            this.cards = addCardToArray(cards, new Card(expirationDate, ownerName, cardNumber, iban));
+    public void addCard() {
+        int i = 0;
+
+        if (numberOfBankAccounts > 1) {
+            System.out.println("Select one of your bank accounts to attach your bank account to:");
+            for (BankAccount bankAccount : this.bankAccounts) {
+                i++;
+                System.out.println(i + ") " + bankAccount.toString());
+            }
+            System.out.println("\n");
+        } else System.out.println("You can only add a card for account: \n1) " + this.bankAccounts[0].toString() + "\n\n");
+
+        System.out.println("Please type the account you want to add the card for");
+        Scanner sc = new Scanner(System.in);
+        byte b = sc.nextByte();
+
+        if ( b <= numberOfBankAccounts){
+            Card newCard = new Card(this.firstName+" "+this.lastName);
+            this.bankAccounts[b-1].attachCard(newCard);
+            this.cards = addCardToArray(cards, newCard);
             this.numberOfCards++;
-        } else System.out.println("Please login before performing this action.");
+        }
+
     }
 
-    public void addBankAccount(String IBAN, double balance, Card attachedCardNumber) {
+    public void addBankAccount() {
         if (isAuthenticated) {
-            this.bankAccounts = addBankAccountToArray(bankAccounts, new BankAccount(IBAN, balance, attachedCardNumber));
+            this.bankAccounts = addBankAccountToArray(bankAccounts, new BankAccount());
             this.numberOfBankAccounts++;
         } else System.out.println("Please login before performing this action.");
     }
 
     public void listCards() {
         if (this.cards.length == 0)
-            System.out.println("No added cards");
+            System.out.println("None");
         else
             for (Card card : this.cards) {
                 System.out.println(card.toString());
             }
     }
 
-    public void listBankAccounts() {
-        for (BankAccount bankaccount : this.bankAccounts) {
-            System.out.println(bankaccount.toString());
+    public void printBankAccounts() {
+        for ( BankAccount bankAccount : this.bankAccounts){
+            System.out.println(bankAccount.toString());
         }
     }
 
-    public double showBalance(BankAccount bankAccount){
-        return bankAccount.showBalance();
+    public BankAccount[] bankAccountsForUser() {
+        return this.bankAccounts;
     }
 
     public boolean login(String userName, int loginAttempts) {

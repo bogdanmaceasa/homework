@@ -1,7 +1,6 @@
 package tema4.atm;
 
-import lombok.ToString;
-
+import org.apache.commons.lang3.time.DateUtils;
 import java.util.Date;
 import java.util.Objects;
 import java.util.Random;
@@ -14,11 +13,11 @@ public class Card extends BankAccount{
     private final String cardNumber;
     private int PIN=1234;
 
-    public Card(Date expirationDate, String ownerName, String cardNumber, String iban) {
-        super(iban);
-        this.expirationDate = expirationDate;
+    public Card(String ownerName) {
+        Date d = new Date();
+        this.expirationDate = DateUtils.addYears(d, 4);
         this.ownerName = ownerName;
-        this.cardNumber = cardNumber;
+        this.cardNumber = "4254 " + generateRandomCardNumber();
     }
 
     public void changePIN ( int pin) {
@@ -38,21 +37,28 @@ public class Card extends BankAccount{
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(expirationDate, ownerName, cardNumber, PIN);
-    }
+    public int hashCode() { return Objects.hash(expirationDate, ownerName, cardNumber, PIN); }
 
     @Override
     public String toString() {
         return super.toString() +"\nCard Details\n" +
-                "expirationDate=" + expirationDate +
-                "\nownerName='" + ownerName + '\'' +
-                "\ncardNumber='" + cardNumber;
+                "expires on: " + expirationDate +
+                "\nCardholder Name: '" + ownerName + '\'' +
+                "\nCard Number: '" + cardNumber +"\'";
     }
 
-
-    //    public String generateRandomCardNumber (){
-//        Random random = new Random();
-//    }
+        public String generateRandomCardNumber (){
+        String digits = "0123456789";
+        StringBuilder s = new StringBuilder();
+        Random random = new Random();
+        for ( int i = 1; i<=3; i++){
+            for ( int j = 0 ; j<4; j++){
+                int index = (int)((digits.length()-1)* Math.random());
+                s.append(digits.charAt(index));
+            }
+            s.append(" ");
+        }
+        return s.toString();
+    }
 
 }

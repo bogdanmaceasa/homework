@@ -1,7 +1,6 @@
 package tema4.atm;
 
 
-import javax.sound.midi.Soundbank;
 import java.util.Scanner;
 
 /*
@@ -33,16 +32,36 @@ public class OnlineATM {
         while (continueActions) {
             Scanner sc = new Scanner(System.in);
             if (isAuthenticated) {
-                System.out.println("Account Page : \n\nTo list your bank accounts, press 1\nTo list your cards, type 2\nTo list the balance on your account, press 3\nTo generate a new card, type 4");
+                System.out.println("Account Options\n_________________________________________\n\nTo list your bank accounts, press 1\nTo list your cards, type 2\n" +
+                        "To create a new Bank Account, type 3\nTo generate a new card, type 4\nTo list the balance on your accounts, type 5\nTo make a payment, type 6\n" +
+                        "To withdraw money, type 7\nTo deposit money, type 8\nTo change your account password, type 9\nTo logout, type 10");
                 byte operation = sc.nextByte();
                 switch (operation) {
                     case 1: {
-                        authenticatedUser.listBankAccounts();
+                        authenticatedUser.printBankAccounts();
                         break;
                     }
                     case 2: {
+                        System.out.println("Your cards are : ");
                         authenticatedUser.listCards();
                         break;
+                    }
+                    case 3: {
+                        authenticatedUser.addBankAccount();
+                        break;
+                    }
+                    case 4: {
+                        authenticatedUser.addCard();
+                        break;
+                    }
+                    case 5: {
+                        System.out.println("Balance to your accounts : ");
+                        for ( BankAccount bankAccount : authenticatedUser.bankAccountsForUser())
+                            System.out.println("Account: " + bankAccount.getIBAN() + " has: $" + bankAccount.showBalance());
+                        break;
+                    } // de test ce se intampla daca ai 2 conturi ?!?!?! ce output afiseaza? 1 IBAN sau ambele ? ?
+                    case 6: {
+
                     }
                     default: {
                         System.out.println("you have not entered a valid option");
@@ -88,10 +107,15 @@ public class OnlineATM {
             }
             System.out.println("Do you want to continue? (Y/N)");
             String cont = sc.next();
-            if (cont == "N" || cont == "n")
+            if (cont.equals("N") || cont.equals("n"))
                 continueActions = false;
         }
+
+        for (User user : atmUsers) {
+            System.out.println(user.toString());
+        }
     }
+
 
 
 
@@ -107,5 +131,6 @@ public class OnlineATM {
         return array2;
     }
 
+//    private static void addCardToUser()
 }
 
