@@ -22,6 +22,7 @@ public class Card{
 
     public void changePIN ( int pin) {
         this.PIN = pin;
+        System.out.println("PIN has been updated!");
     }
 
     public Date getExpirationDate() {

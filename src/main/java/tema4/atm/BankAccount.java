@@ -25,6 +25,7 @@ public class BankAccount {
             System.out.println( balance + "$ have been withdrawn");
         } else System.out.println("insufficient funds");
     }
+
     public void pay(double balance) {
         if (this.balance >= balance) {
             this.balance -= balance;

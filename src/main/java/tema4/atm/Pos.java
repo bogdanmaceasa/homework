@@ -17,7 +17,7 @@ public class Pos {
                 i++;
             }
             System.out.println("\n\nYou will need to have a card attached to the selected bank account to use for the POS operations");
-            System.out.println("\n\nTo make a payment, type 1\n" + "To withdraw money, type 2\nTo deposit money, type 3\nTo exit the POS, type 9");
+            System.out.println("\n\nTo make a payment, type 1\n" + "To withdraw money, type 2\nTo deposit money, type 3\nTo change PIN for one of your cards, type 4\nTo exit the POS, type 9");
             int op = sc.nextInt();
 
             switch (op) {
@@ -70,6 +70,16 @@ public class Pos {
                     System.out.println("Enter the desired amount to deposit: ");
                     double sum = sc.nextDouble();
                     account.addBalance(sum);
+                    break;
+                }
+                case 4:{
+                    user.listCards();
+                    System.out.println("Type the desired card you want to change the pin for: ");
+                    int index = sc.nextInt();
+                    Card card = user.getCards()[index-1];
+                    System.out.println("Enter the new PIN ( 4 digits ): ");
+                    int pin = sc.nextInt();
+                    card.changePIN(pin);
                     break;
                 }
                 case 9: {
