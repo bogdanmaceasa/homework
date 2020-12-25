@@ -21,9 +21,16 @@ public class OnlineATM {
         int loginAttempts = 3;
         User authenticatedUser = null;
 
-        User[] atmUsers = new User[2];
+        User[] atmUsers = new User[3];
         atmUsers[0] = new User("Bogdan", "Maceasa", "test123");
         atmUsers[1] = new User("", "Maceasa", "test456");
+        BankAccount[] bankAccounts = {new BankAccount(),new BankAccount(),new BankAccount()};
+        Card[] cards = {new Card("mac"),new Card("mace"),new Card("ma"),new Card("mac")};
+        atmUsers[2] = new User("", "mac", "t456",bankAccounts,cards);
+        bankAccounts[0].attachCard(cards[0]);
+        bankAccounts[0].attachCard(cards[1]);
+        bankAccounts[1].attachCard(cards[2]);
+        bankAccounts[2].attachCard(cards[3]);
 
         boolean continueActions = true;
 
@@ -33,8 +40,8 @@ public class OnlineATM {
             Scanner sc = new Scanner(System.in);
             if (isAuthenticated) {
                 System.out.println("Account Options\n_________________________________________\n\nTo list your bank accounts, press 1\nTo list your cards, type 2\n" +
-                        "To create a new Bank Account, type 3\nTo generate a new card, type 4\nTo list the balance on your accounts, type 5\nTo make a payment, type 6\n" +
-                        "To withdraw money, type 7\nTo deposit money, type 8\nTo change your account password, type 9\nTo logout, type 10");
+                        "To create a new Bank Account, type 3\nTo generate a new card, type 4\nTo list the balance on your accounts, type 5\nTo access the POS, type 6\n" +
+                        "To change your account password, type 9\nTo logout, type 10");
                 byte operation = sc.nextByte();
                 switch (operation) {
                     case 1: {
@@ -56,12 +63,23 @@ public class OnlineATM {
                     }
                     case 5: {
                         System.out.println("Balance to your accounts : ");
-                        for ( BankAccount bankAccount : authenticatedUser.bankAccountsForUser())
+                        for (BankAccount bankAccount : authenticatedUser.bankAccountsForUser())
                             System.out.println("Account: " + bankAccount.getIBAN() + " has: $" + bankAccount.showBalance());
                         break;
-                    } // de test ce se intampla daca ai 2 conturi ?!?!?! ce output afiseaza? 1 IBAN sau ambele ? ?
+                    }
                     case 6: {
-
+                        Pos.operations(authenticatedUser);
+                        break;
+                    }
+                    case 9: {
+                        System.out.println("Enter your new password: ");
+                        String newPassword = sc.next();
+                        authenticatedUser.changePassword(newPassword);
+                        break;
+                    }
+                    case 10: {
+                        isAuthenticated = false;
+                        break;
                     }
                     default: {
                         System.out.println("you have not entered a valid option");
@@ -70,7 +88,7 @@ public class OnlineATM {
                 }
             } else {
                 System.out.println("Select the desired operation:");
-                System.out.println("To login, type 1\nTo create a new Account, type 2\n");
+                System.out.println("To login, type 1\nTo create a new Account, type 2\nTo exit, type 3");
                 byte operation = sc.nextByte();
                 switch (operation) {
                     case 1: {
@@ -99,25 +117,22 @@ public class OnlineATM {
                         authenticatedUser = newUser;
                         break;
                     }
+                    case 3: {
+                        continueActions = false;
+                        break;
+                    }
                     default: {
                         System.out.println("you have not entered a valid option");
                         break;
                     }
                 }
             }
-            System.out.println("Do you want to continue? (Y/N)");
-            String cont = sc.next();
-            if (cont.equals("N") || cont.equals("n"))
-                continueActions = false;
         }
 
-        for (User user : atmUsers) {
-            System.out.println(user.toString());
-        }
+//        for (User user : atmUsers) {
+//            System.out.println(user.toString());
+//        }
     }
-
-
-
 
     /* --------------------------------   STATIC METHODS   -------------------------------- */
 
@@ -131,6 +146,5 @@ public class OnlineATM {
         return array2;
     }
 
-//    private static void addCardToUser()
 }
 

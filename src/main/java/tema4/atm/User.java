@@ -24,6 +24,17 @@ public class User {
         this.numberOfBankAccounts++;
     }
 
+    public User(String firstName, String lastName, String password, BankAccount[] bankAccounts, Card[] cards) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userName = firstName + lastName;
+        this.password = password;
+        this.numberOfBankAccounts+= bankAccounts.length;
+        this.numberOfCards+= cards.length;
+        this.bankAccounts = bankAccounts;
+        this.cards = cards;
+    }
+
     public void addCard() {
         int i = 0;
 
@@ -61,7 +72,7 @@ public class User {
             System.out.println("None");
         else
             for (Card card : this.cards) {
-                System.out.println(card.toString());
+                System.out.println("\n" + card.toString());
             }
     }
 
@@ -100,21 +111,16 @@ public class User {
         return true;
     }
 
-    public void logout() {
-        System.out.println("You have been logged out!");
-        isAuthenticated = false;
-    }
-
     public String getUserName() {
         return userName;
     }
 
-    public boolean getAuthenticationStatus() {
-        return isAuthenticated;
-    }
-
     public boolean isAccountLocked() {
         return isLocked;
+    }
+
+    public void changePassword (String password){
+       this.password = password;
     }
 
     @Override

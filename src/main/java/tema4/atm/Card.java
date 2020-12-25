@@ -6,7 +6,7 @@ import java.util.Objects;
 import java.util.Random;
 
 
-public class Card extends BankAccount{
+public class Card{
 
     private final Date expirationDate;
     private String ownerName;
@@ -17,7 +17,7 @@ public class Card extends BankAccount{
         Date d = new Date();
         this.expirationDate = DateUtils.addYears(d, 4);
         this.ownerName = ownerName;
-        this.cardNumber = "4254 " + generateRandomCardNumber();
+        this.cardNumber = "4254" + generateRandomCardNumber();
     }
 
     public void changePIN ( int pin) {
@@ -26,6 +26,10 @@ public class Card extends BankAccount{
 
     public Date getExpirationDate() {
         return expirationDate;
+    }
+
+    public String getCardNumber() {
+        return cardNumber;
     }
 
     @Override
@@ -41,22 +45,22 @@ public class Card extends BankAccount{
 
     @Override
     public String toString() {
-        return super.toString() +"\nCard Details\n" +
+        return "Card Details\n" +
                 "expires on: " + expirationDate +
                 "\nCardholder Name: '" + ownerName + '\'' +
                 "\nCard Number: '" + cardNumber +"\'";
     }
 
-        public String generateRandomCardNumber (){
+    public String generateRandomCardNumber (){
         String digits = "0123456789";
         StringBuilder s = new StringBuilder();
         Random random = new Random();
         for ( int i = 1; i<=3; i++){
+            s.append(" ");
             for ( int j = 0 ; j<4; j++){
                 int index = (int)((digits.length()-1)* Math.random());
                 s.append(digits.charAt(index));
             }
-            s.append(" ");
         }
         return s.toString();
     }
