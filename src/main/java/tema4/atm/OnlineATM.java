@@ -24,9 +24,9 @@ public class OnlineATM {
         User[] atmUsers = new User[3];
         atmUsers[0] = new User("Bogdan", "Maceasa", "test123");
         atmUsers[1] = new User("", "Maceasa", "test456");
-        BankAccount[] bankAccounts = {new BankAccount(),new BankAccount(),new BankAccount()};
-        Card[] cards = {new Card("mac"),new Card("mace"),new Card("ma"),new Card("mac")};
-        atmUsers[2] = new User("", "mac", "t456",bankAccounts,cards);
+        BankAccount[] bankAccounts = {new BankAccount(), new BankAccount(), new BankAccount()};
+        Card[] cards = {new Card("mac"), new Card("mace"), new Card("ma"), new Card("mac")};
+        atmUsers[2] = new User("", "mac", "t456", bankAccounts, cards);
         bankAccounts[0].attachCard(cards[0]);
         bankAccounts[0].attachCard(cards[1]);
         bankAccounts[1].attachCard(cards[2]);
@@ -101,6 +101,7 @@ public class OnlineATM {
                                     authenticatedUser = user;
                                 } else
                                     System.out.println("account is locked, you will not be able to use the onlineATM app");
+                            else System.out.println("no such user or account");
                         }
                         break;
                     }
