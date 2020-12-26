@@ -292,26 +292,28 @@ public class StringManipulation {
     }
 
     //Write a method to find the length of the longest substring without repeating characters.
-    public static int longestNonRepeat(String string) {
-
-        char[] stringToChars = new char[0];
-//        stringToChars[0] = string.charAt(0);
-        int count = 1;
-        int max = 1;
-        for (int i = 0; i < string.length(); i++) {
-            boolean isPresent = false;
-            for (int j = 0; j < stringToChars.length; j++)
-                if (string.charAt(i) == stringToChars[j]) {
-                    isPresent = true;
-                    max = max < count ? count : max;
-                    count = 1;
+    public static void longestNonRepeat(String string) {
+        int max = 0;
+        int longestIndexBeginsAt = 0;
+        for (int i = 0; i < string.length()-max; i++) {
+            String substring = "";
+            int count = 0;
+            for (int j = i; j < string.length(); j++){
+                String checker = String.valueOf(string.charAt(j));
+                if (substring.contains(checker)) {
+                    if ( max < count ) {
+                        max = count;
+                        longestIndexBeginsAt = i;
+                    }
+                    break;
+                }else {
+                    substring= substring + string.charAt(j);
+                    count++;
                 }
-            if (!isPresent) {
-                stringToChars = addCharToArray(stringToChars, string.charAt(i));
-                count++;
             }
         }
-        return max;
+        System.out.println("longest non-repeat substring found is: " + string.substring(longestIndexBeginsAt,longestIndexBeginsAt+max));
+        System.out.println("the length of the substring is: " + max );
     }
 
 //    public static String longestNonRepeatTwo ( String string) {

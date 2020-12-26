@@ -40,7 +40,7 @@ public class StringMain {
 
 //          StringManipulation.isPalindrome("adddda");
 
-//        System.out.println(StringManipulation.longestNonRepeat("aaa123asab123acdaasa123a"));
+        StringManipulation.longestNonRepeat("abcdabcdefghachid");
 
 //        StringManipulation.longestPalindrome("2121aaabbbaaa");
 
@@ -48,7 +48,7 @@ public class StringMain {
 
 //        StringManipulation.removeGivenChar("ana are mere", 'a');
 
-        String[] words = {"wor", "wor", "is", "apple", "wait", "play", "music", "play", "wor", "play"};
-        System.out.println(StringManipulation.wordOccurrence(words));
+//        String[] words = {"wor", "wor", "is", "apple", "wait", "play", "music", "play", "wor", "play"};
+//        System.out.println(StringManipulation.wordOccurrence(words));
     }
 }
