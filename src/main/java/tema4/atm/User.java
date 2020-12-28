@@ -7,8 +7,8 @@ import java.util.Scanner;
 @ToString
 public class User {
 
-    private Card[] cards = new Card[0];
-    private BankAccount[] bankAccounts = new BankAccount[1];
+    private Card[] cards = new Card[0]; // each user has a list of cards attached to his account. these are not automatically linked to a bank account.
+    private BankAccount[] bankAccounts = new BankAccount[1]; // each ATM user has at least one Bank Account - generated automatically with his account.
     private final String userName;
     private String password;
     private int numberOfCards = 0, numberOfBankAccounts = 0;
@@ -87,7 +87,7 @@ public class User {
     }
 
     public boolean login(String userName, int loginAttempts) {
-        System.out.println("Hello! " + this.userName + " please enter your password: ");
+        System.out.println("Hello! " + userName + " please enter your password: ");
         return isAuthenticated = passwordChecker(loginAttempts);
     }
 
