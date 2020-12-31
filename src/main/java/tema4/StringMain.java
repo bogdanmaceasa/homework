@@ -5,7 +5,7 @@ public class StringMain {
 
     public static void main(String[] args) {
 
-        String inputString = "are";
+        String inputString = "areqre";
         String inputStringTwo = "aer";
 
 //        System.out.println(StringManipulation.reverseStringPublic(inputString));
@@ -23,7 +23,7 @@ public class StringMain {
 //        StringManipulation.findPermutations(inputStringTwo, "");
 //
 //        if (StringManipulation.containsOnlyDigits("12345812z"))
-//            System.out.println("string is numberic");
+//            System.out.println("string is numeric");
 //        else System.out.printf("string does not contain only numbers");
 //
 //        StringManipulation.countConsonantsVowels("inputstring is the dream123AZAE");
@@ -40,7 +40,7 @@ public class StringMain {
 
 //          StringManipulation.isPalindrome("adddda");
 
-        StringManipulation.longestNonRepeat("abcdabcdefghachid");
+//        StringManipulation.longestNonRepeat("abcdabcdefghachid");
 
 //        StringManipulation.longestPalindrome("2121aaabbbaaa");
 

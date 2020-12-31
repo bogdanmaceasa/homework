@@ -40,23 +40,21 @@ public class StringManipulation {
 
     //Write a method to print duplicate characters from a string.
     //Write a method to find duplicate characters in a given string.
-    public static char[] duplicateCharsPublic(String string) {
+    public static String duplicateCharsPublic(String string) {
 
         char[] toChar = string.toCharArray();
         int index = 0;
         int indexUnique = 0;
-        char[] charArrayUnique = new char[string.length()];
+        char[] charArrayUnique = new char[0];
         for (char i : toChar) {
             if (tema1.PublicMethods.isDouplicate(index, toChar) && tema1.PublicMethods.isUniqueChar(i, charArrayUnique)) {
-//      I am using methods from tema1.PubliccMethods which check for duplicate characters within an char array
+//      I am using methods from tema1.PublicMethods which checks for duplicate characters within an char array
 //      + checks if a specific char has already been found to be duplicate
-                charArrayUnique[indexUnique] = i;
-                charArrayUnique[indexUnique + 1] = ',';
-                indexUnique += 2;
+                charArrayUnique= addCharToArray(charArrayUnique,i);
             }
             index++;
         }
-        return charArrayUnique;
+        return String.valueOf(charArrayUnique);
     }
 
     //Write a method to check if two strings are anagrams of each other. easy way
