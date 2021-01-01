@@ -50,7 +50,7 @@ public class StringManipulation {
             if (tema1.PublicMethods.isDouplicate(index, toChar) && tema1.PublicMethods.isUniqueChar(i, charArrayUnique)) {
 //      I am using methods from tema1.PublicMethods which checks for duplicate characters within an char array
 //      + checks if a specific char has already been found to be duplicate
-                charArrayUnique= addCharToArray(charArrayUnique,i);
+                charArrayUnique = addCharToArray(charArrayUnique, i);
             }
             index++;
         }
@@ -172,22 +172,28 @@ public class StringManipulation {
     //Write a method to print the first non-repeated character from a string.
     public static String firstNonRepeat(String string) {
 
-        char[] strinToChar = string.toCharArray();
-        int occurrence = 0;
-        int i = 0;
-        if (i < string.length()) {
+        char[] uniqueChars = new char[string.length()];
+        int[] uniqueCharsOccurrence = new int[string.length()];
+        int index = 0;
+        for (int i = 0; i < string.length(); i++) {
+            boolean notAdded = true;
             for (int j = i + 1; j < string.length(); j++) {
-                if (strinToChar[i] == strinToChar[j]) {
-                    if (j == string.length() - 1)
-                        return "no unique elements";
-                    occurrence++;
-                } else if (occurrence >= 1) {
-                    i = j;
-                    occurrence = 0;
-                } else return String.valueOf(strinToChar[i]);
+
+                if (string.charAt(i) == uniqueChars[j]) {
+                    uniqueCharsOccurrence[j]++;
+                    notAdded = false;
+                    break;
+                }
+            }
+            if (notAdded) {
+                uniqueChars[index] = string.charAt(i);
+                index++;
             }
         }
-        return String.valueOf(strinToChar[string.length() - 1]);
+        for (int i = 0; i < index; i++)
+            if (uniqueCharsOccurrence[i] == 0)
+                return String.valueOf(uniqueChars[i]);
+        return "no unique elements";
     }
 
     //Write a method to convert a given String into int like the Integer.parseInt().
@@ -293,47 +299,26 @@ public class StringManipulation {
     public static void longestNonRepeat(String string) {
         int max = 0;
         int longestIndexBeginsAt = 0;
-        for (int i = 0; i < string.length()-max; i++) {
+        for (int i = 0; i < string.length() - max; i++) {
             String substring = "";
             int count = 0;
-            for (int j = i; j < string.length(); j++){
+            for (int j = i; j < string.length(); j++) {
                 String checker = String.valueOf(string.charAt(j));
                 if (substring.contains(checker)) {
-                    if ( max < count ) {
+                    if (max < count) {
                         max = count;
                         longestIndexBeginsAt = i;
                     }
                     break;
-                }else {
-                    substring= substring + string.charAt(j);
+                } else {
+                    substring = substring + string.charAt(j);
                     count++;
                 }
             }
         }
-        System.out.println("longest non-repeat substring found is: " + string.substring(longestIndexBeginsAt,longestIndexBeginsAt+max));
-        System.out.println("the length of the substring is: " + max );
+        System.out.println("longest non-repeat substring found is: " + string.substring(longestIndexBeginsAt, longestIndexBeginsAt + max));
+        System.out.println("the length of the substring is: " + max);
     }
-
-//    public static String longestNonRepeatTwo ( String string) {
-//        // string = "abcbabcefghigdae"
-//        // string = "bcbabcefghigdae"
-//        for (int i = 0; i < string.length() - 1; i++) {
-//            int length = 0;
-//            for (int j = i + 1; j < string.length(); j++) {
-//                String test = string.substring(j,j+1);
-//
-//                if (string.substring(0, j).contains(String.valueOf(string.charAt(j)))) {
-//
-//                    break;
-//                } else {
-//                    length++;
-//                    int  position = i;
-//                }
-//
-//                return etc;
-//            }
-//        }
-//    }
 
     //Given string str, write a method to find the longest palindromic substring in str.
     public static void longestPalindrome(String string) {

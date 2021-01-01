@@ -30,7 +30,7 @@ public class StringMain {
 //
 //        System.out.println(StringManipulation.countOccurrenceInString("stringoccuranceistringtest", 't'));
 //
-//        System.out.println(StringManipulation.firstNonRepeat("aabbccdd"));
+        System.out.println(StringManipulation.firstNonRepeat("aioai"));
 //
 //        System.out.println(StringManipulation.convertToInt("12358"));
 //

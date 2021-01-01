@@ -66,5 +66,35 @@ public class StringManipulationTests {
         Assert.assertEquals("test character occurance in string checker method", 3, test );
     }
 
+    @Test
+    public void testFirstNonRepeat(){
+        String str = "aio123u4nmd1ac1a";
+        String test = StringManipulation.firstNonRepeat(str);
+        Assert.assertEquals("test first non-repetitive char in string checker method", "i", test );
+    }
+
+    @Test
+    public void testFirstNonRepeatTwo(){
+        String str = "aioaio";
+        String test = StringManipulation.firstNonRepeat(str);
+        Assert.assertEquals("test first non-repetitive char in string checker method", "no unique elements", test );
+    }
+
+    @Test
+    public void testConvertToInt(){
+        String str = "123412";
+        int test = StringManipulation.convertToInt(str);
+        Assert.assertEquals("test first non-repetitive char in string checker method", 123412, test );
+    }
+
+    @Test
+    public void testWordOccurrence(){
+        String[] words = {"wor", "wor", "is", "apple", "wait", "play", "music", "play", "wor", "play"};
+        String test = StringManipulation.wordOccurrence(words);
+        Assert.assertEquals("test first non-repetitive char in string checker method", "wor", test );
+
+    }
+
+
 
 }
