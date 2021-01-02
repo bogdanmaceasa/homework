@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import tema4.atm.BankAccount;
 import tema4.atm.*;
 
 import static org.mockito.Mockito.*;
@@ -27,15 +26,16 @@ public class ATMTests {
     @Test
     public void testBankAccountsForUser(){
 
-
-        when(bankAccount.cardsForBankAccount()).thenReturn(cards);
-        when(user.bankAccountsForUser()).thenReturn(bankAccounts);
+//        when(bankAccount.cardsForBankAccount()).thenReturn(cards); //-> NullPointerException?!
+//        when(user.bankAccountsForUser()).thenReturn(bankAccounts);
 
         BankAccount[] test = userTest.bankAccountsForUser();
         Assert.assertEquals("Test for output of User Bank Accounts",bankAccounts,test );
 
 
     }
+
+
 
 
 }

@@ -20,14 +20,14 @@ Model these entities (book, novel, album) with different classes and inheritance
 
 import java.util.Objects;
 
-class Book implements BookActionsTemplate {
+public class Book implements BookActionsTemplate {
 
     private final String bookName; // final instance variable that needs to be assigned a value in all constructors
     private final String author; // final instance variable that needs to be assigned a value in all constructors
     private int pagNum;
     private boolean isAvailable;
 
-    Book() {
+    public Book() {
         this.bookName = "Unnamed book";
         this.author = "Unnamed author";
         this.pagNum = 0;
@@ -35,7 +35,7 @@ class Book implements BookActionsTemplate {
         System.out.print("\nAn unknown book has been added to the library. As it is unreadable, it will not be useful in the library. You need to throw it and add another one.");
     }
 
-    Book(String bookName, String author, int pagNum) {
+    public Book(String bookName, String author, int pagNum) {
         this.bookName = bookName;
         this.author = author;
         this.pagNum = pagNum;
@@ -43,7 +43,7 @@ class Book implements BookActionsTemplate {
         System.out.print("\nA new book was checked into the library.");
     }
 
-    Book(String bookName, int pagNum) {
+    public Book(String bookName, int pagNum) {
 
         this.bookName = bookName;
         this.author = "Unnamed author";
@@ -53,7 +53,7 @@ class Book implements BookActionsTemplate {
     }
 
 
-    Book(String bookName, String author) {
+    public Book(String bookName, String author) {
         this.bookName = bookName;
         this.author = author;
         this.isAvailable = true;

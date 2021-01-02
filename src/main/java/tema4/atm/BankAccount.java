@@ -7,7 +7,7 @@ public class BankAccount {
 
     private final String IBAN;
     private double balance;
-    Card[] attachedCardNumbers = new Card[0]; // each bank account can have one or more cards attached.
+    private Card[] attachedCardNumbers = {}; // each bank account can have one or more cards attached.
     int cardsAttachedToAccount = 0;
 
     public BankAccount() {
