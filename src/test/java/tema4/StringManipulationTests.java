@@ -4,10 +4,15 @@ package tema4;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.junit.MockitoJUnitRunner;
+import tema4.atm.BankAccount;
+
 
 @RunWith(MockitoJUnitRunner.class)
 public class StringManipulationTests {
+
+    /*  String Manipulation tests  */
 
     @Test
     public void testReverseStringPublic(){

@@ -29,8 +29,8 @@ public class User {
         this.lastName = lastName;
         this.userName = firstName + lastName;
         this.password = password;
-        this.numberOfBankAccounts+= bankAccounts.length;
-        this.numberOfCards+= cards.length;
+        this.numberOfBankAccounts = bankAccounts.length;
+        this.numberOfCards = cards.length;
         this.bankAccounts = bankAccounts;
         this.cards = cards;
     }
