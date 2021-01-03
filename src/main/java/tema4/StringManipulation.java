@@ -95,7 +95,9 @@ public class StringManipulation {
         for (int i = 0; i < lengthA; i++) {
             boolean isPresent = false;
             for (int j = 0; j < lengthB; j++) {
-                if (arrayAOccurances[0][i] == arrayBOccurances[0][j]) {
+                int res = arrayAOccurances[0][i] - arrayBOccurances[0][j];
+                res = (res < 0 ? -res : res);
+                if (res == 0 || res == 32) {
                     isPresent = true;
                     if (arrayAOccurances[1][i] != arrayBOccurances[1][j])
                         return false;
@@ -442,9 +444,12 @@ public class StringManipulation {
         for (int i = 0; i < array1.length; i++) {
             boolean isInArray = false;
             for (int j = 0; j < length; j++) {
-                if (array2[0][j] == array1[i]) {
+                int res = array2[0][j] - array1[i];
+                res = (res < 0 ? -res : res);
+                if (res == 0 || res == 32) {
                     isInArray = true;
                     array2[1][j] += 1;
+
                 }
             }
             if (!isInArray) {
@@ -465,5 +470,63 @@ public class StringManipulation {
         array2[array1.length] = a;
         return array2;
     }
+
+    /* Hackerrank methods */
+
+    public static String getSmallestAndLargest(String s, int k) {
+        String smallest = "";
+        String largest = "";
+
+        smallest = s.substring(0, k);
+        for (int i = 0; i <= s.length() - k; i++) {
+            String subStr = s.substring(i, i + k);
+            if (smallest.compareTo(subStr) > 0) {
+                smallest = subStr;
+            }
+            if (subStr.compareTo(largest) > 0) {
+                largest = subStr;
+            }
+        }
+
+        return smallest + "\n" + largest;
+    }
+
+    public static String returnTokens(String s) {
+
+        String[] strArray = new String[s.length()];
+        final String[] res = s.split("[^A-Za-z]+"); // ?!?!?!?!?!?
+
+        int token = 0;
+        boolean charsExist = false;
+        for (int i = 0; i < s.length(); i++) {
+            boolean tokenEnd = false;
+            strArray[i] = "";
+            if (((s.charAt(i) >= 65) && (s.charAt(i) <= 90)) ||
+                    ((s.charAt(i) >= 97) && (s.charAt(i) <= 122))) {
+                charsExist = true;
+                if (i == s.length() - 1) {
+                    strArray[token] += s.substring(i);
+                } else strArray[token] += s.substring(i, i + 1);
+            } else tokenEnd = true;
+            if (tokenEnd) {
+                if (i > 0 && i < s.length() - 1) {
+                    token++;
+                }
+            }
+        }
+
+        String str = "";
+        int token2 = 0;
+        if ( charsExist ) {
+            for (int i = 0; i <= token; i++) {
+                if (strArray[i] != "") {
+                    str += "\n" + strArray[i];
+                    token2++;
+                }
+            }
+            return token2 + str;
+        } else return "0";
+    }
+
 
 }

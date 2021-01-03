@@ -40,6 +40,14 @@ public class StringManipulationTests {
     }
 
     @Test
+    public void testIsAnagramPublicTwo(){
+        String str = "anagram";
+        String strB= "margana";
+        boolean test = StringManipulation.isAnagramPublicTwo(str,strB);
+        Assert.assertEquals("test for anagram checker String method", true, test );
+    }
+
+    @Test
     public void testContainsOnlyDigits(){
 
         String str = "1234";
@@ -100,6 +108,26 @@ public class StringManipulationTests {
 
     }
 
+
+    /* Hackerrank tests */
+
+    @Test
+    public void testGetSmallestAndLargest(){
+        String str = "welcometojava";
+        String test = StringManipulation.getSmallestAndLargest(str,3);
+        Assert.assertEquals("test", "ava\n" +"wel", test);
+
+    }
+
+    @Test
+    public void testReturnTokens(){
+        String str = "                a                    ";
+        String test = StringManipulation.returnTokens(str);
+        Assert.assertEquals("test", "1\n" +
+                "a", test);
+
+
+    }
 
 
 }
