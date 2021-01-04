@@ -30,11 +30,11 @@ public class StringMain {
 //
 //        System.out.println(StringManipulation.countOccurrenceInString("stringoccuranceistringtest", 't'));
 //
-        System.out.println(StringManipulation.firstNonRepeat("aioai"));
+//        System.out.println(StringManipulation.firstNonRepeat("aioai"));
 //
 //        System.out.println(StringManipulation.convertToInt("12358"));
 //
-//        StringManipulation.reverseWords("this is a test string");
+        StringManipulation.reverseWords("this is a test string");
 
 //          StringManipulation.isRotate("abcd","bcda");
 

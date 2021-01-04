@@ -216,12 +216,12 @@ public class StringManipulation {
         int numberOfSpaces = 0;
         int j = 0;
 
+
         for (int index = 0; index < string.length(); index++) {
             if (string.charAt(index) == ' ') {
                 numberOfSpaces++;
             }
         }
-
         int[] positionOfSpaces = new int[numberOfSpaces];
         for (int index = 0; index < string.length(); index++) {
             if (string.charAt(index) == ' ') {
@@ -247,8 +247,8 @@ public class StringManipulation {
         String str = "";
         for (String s : words) {
             str = str.concat(reverse(s)).concat(" ");
-            System.out.println(str);
         }
+        System.out.println(str);
     }
 
     //Write a method to check if two strings are a rotation of each other.
@@ -494,7 +494,7 @@ public class StringManipulation {
     public static String returnTokens(String s) {
 
         String[] strArray = new String[s.length()];
-        final String[] res = s.split("[^A-Za-z]+"); // ?!?!?!?!?!?
+//        final String[] res = s.split("[^A-Za-z]+"); // ?!?!?!?!?!?
 
         int token = 0;
         boolean charsExist = false;
