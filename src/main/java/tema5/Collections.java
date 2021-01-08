@@ -33,54 +33,57 @@ public class Collections {
         ComparatorForPersonAndAge comparatorForTreeSet = new ComparatorForPersonAndAge();
         Set<Person> personTreeSet = new TreeSet<>(comparatorForTreeSet);
 
-        Person firstHuman = new Person("Adam", 1000);
-        Person secondHuman = new Person ( "Eva", 1000);
         Person xHuman = new Person ( "Johan", 50);
         Person yHuman = new Person ( "Alex", 20);
         Person zHuman = new Person ( "Ada", 10);
-        Person random = zHuman;
         Person wHuman = new Person ( "Sebi", 11);
         Person uHuman = new Person ( "Hubert", 18);
         Person ioiHuman = new Person ( "Zack", 18);
 
-        System.out.println(personTreeSet.add(firstHuman));
-        System.out.println(personTreeSet.add(secondHuman));
         System.out.println(personTreeSet.add(xHuman));
         System.out.println(personTreeSet.add(yHuman));
         System.out.println(personTreeSet.add(zHuman));
         System.out.println(personTreeSet.add(wHuman));
         System.out.println(personTreeSet.add(uHuman));
         System.out.println(personTreeSet.add(ioiHuman));
-        System.out.println(personTreeSet.add(random));
-
-
-        for ( Person person: personTreeSet ) {
-            System.out.println(person);
-        }
 
          /*   Generate Address Lists  */
 
-        List<String> addresses = List.of("Str. Cal. Buc, nr. 100, Brasov, Romania","Bul. Cel Mare, nr. 100, Brasov, Romania","Bul. Cel Mic, nr. 1, Brasov, Romania");
-        List<String> addresses2 = List.of("Str. Cal. Buc, nr. 1, Brasov, Romania","Bul. Cel Mare, nr. 2, Brasov, Romania","Bul. Cel Mic, nr. 3, Brasov, Romania");
+        List<String> addresses = List.of("Brasov","Bucuresti");
+        List<String> addresses2 = List.of("Bucuresti","Iasi","Cluj");
         List<String> addresses3 = new ArrayList<>();
 
-        addresses3.add("Bul.Cel Mare,nr.2,Brasov,Romania");
-        addresses3.add("Bul.Mare,nr.1,Brasov,Romania");
+        addresses3.add("Brasov");
+        addresses3.add("Timisoara");
+
 
         /*   Generate Hobby Lists  */
-        List<Hobby> hobbyList2 = new ArrayList<>(); 
-        List<Hobby> hobbyList1 = List.of(new Hobby("Tenis",10,addresses),
-                                         new Hobby("Inot",5,addresses2),
-                                         new Hobby("Fotbal",2,List.of("Str.Cal.Bucresti,Brasov,Romania","Bul.Cel Mare,nr.2,Brasov,Romania")));
+        List<Hobby> hobbyList1 = new ArrayList<>();
+        List<Hobby> hobbyList2 = List.of(new Hobby("Tenis",10,addresses),
+                                         new Hobby("Fotbal",2,List.of("Bacau","Sibiu")));
+        List<Hobby> hobbyList3 = List.of(new Hobby("Rugby",10,addresses),
+                new Hobby("Basketball",2,List.of("Brasov","Sibiu")));
 
-        hobbyList2.add(new Hobby("Curling",1, new ArrayList<String>(){{add("Str. Cal. Buc, nr. 1, Brasov, Romania");}}));
-        hobbyList2.add(new Hobby("Ping",2,addresses));
-        hobbyList2.add(new Hobby("Ping",2,addresses3));
-        hobbyList2.add(new Hobby("Pong",2,addresses2));
+        hobbyList1.add(new Hobby("Curling",1, new ArrayList<String>(){{add("M.Ciuc");}}));
+        hobbyList1.add(new Hobby("Ping",2,addresses2));
+        hobbyList1.add(new Hobby("Pong",2,addresses3));
 
 
+        /*   Generate Person - Hobby hashMap  */
         Map<Person, List<Hobby>> personHobbyMap = new HashMap<>();
 
+        for ( Person person: personTreeSet){
+            if ( person.getName().equals("Johan")
+                    || person.getName().equals("Sebi")){
+                personHobbyMap.put(person,hobbyList1);
+            } else if ( person.getName().equals("Hubert") ) {
+                personHobbyMap.put(person,hobbyList3);
+            } else personHobbyMap.put(person,hobbyList2);
+        }
+
+        for (Person key : personTreeSet ){
+            System.out.println(key + " "  + personHobbyMap.get(key));
+        }
     }
 
 

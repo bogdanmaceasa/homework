@@ -6,7 +6,6 @@ class Novel extends Book {
 
     String novelType;
 
-
     Novel() {
         super();
         this.novelType = "Unknown novel type";

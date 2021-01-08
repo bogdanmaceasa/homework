@@ -118,7 +118,7 @@ public class StringManipulation {
         }
         for (int i = 0; i < string.length(); i++) {
             String storedOutput = output + string.charAt(i); // storedOutput is the initial value + charAt(i) at each call of the method.
-            findPermutations(string.substring(0, i) + string.substring(i + 1), storedOutput); // method called recursively with subtring excluding charAt(i) and the new stored output.
+            findPermutations(string.substring(0, i) + string.substring(i + 1), storedOutput); // method called recursively with substring excluding charAt(i) and the new stored output.
         }
     }
 
