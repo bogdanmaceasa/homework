@@ -40,12 +40,12 @@ public class Collections {
         Person uHuman = new Person ( "Hubert", 18);
         Person ioiHuman = new Person ( "Zack", 18);
 
-        System.out.println(personTreeSet.add(xHuman));
-        System.out.println(personTreeSet.add(yHuman));
-        System.out.println(personTreeSet.add(zHuman));
-        System.out.println(personTreeSet.add(wHuman));
-        System.out.println(personTreeSet.add(uHuman));
-        System.out.println(personTreeSet.add(ioiHuman));
+        personTreeSet.add(xHuman);
+        personTreeSet.add(yHuman);
+        personTreeSet.add(zHuman);
+        personTreeSet.add(wHuman);
+        personTreeSet.add(uHuman);
+        personTreeSet.add(ioiHuman);
 
          /*   Generate Address Lists  */
 
