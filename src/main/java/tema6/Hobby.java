@@ -1,4 +1,4 @@
-package tema5;
+package tema6;
 
 import lombok.*;
 

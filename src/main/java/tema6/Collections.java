@@ -1,4 +1,4 @@
-package tema5;
+package tema6;
 
 /*
 1. You need to store Persoane in a TreeSet. Define 2 Comparators (one for name - nume and one for age-varsta) that will be used when creating the TreeSet;

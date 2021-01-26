@@ -1,12 +1,11 @@
-package tema4;
+package tema5JUNIT;
 
 
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
 import org.mockito.junit.MockitoJUnitRunner;
-import tema4.atm.BankAccount;
+import tema4.StringManipulation;
 
 
 @RunWith(MockitoJUnitRunner.class)

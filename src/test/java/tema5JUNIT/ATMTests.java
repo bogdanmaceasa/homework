@@ -1,12 +1,10 @@
-package tema4;
+package tema5JUNIT;
 
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import tema4.atm.*;
-
-import static org.mockito.Mockito.*;
 
 public class ATMTests {
 
