@@ -1,4 +1,4 @@
-package tema7;
+package tema7.skiRaceResults;
 
 import lombok.Builder;
 import lombok.Data;
@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +19,11 @@ public class RaceResults<T> {
     private List<String> shootingResult = new ArrayList<>();
     private LocalTime time;
     private LocalTime finalTime;
+    private int penalty;
 
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("mm'min':ss'sec'");
+
+    private String timeToString;
 
 //
 //    public RaceResults(T t, List<String> shootingResult,LocalTime time ){
@@ -44,6 +49,12 @@ public class RaceResults<T> {
         this.finalTime = finalTime;
     }
 
+    public void setPenalty(int penalty) { this.penalty = penalty;}
+
+    public String setTimeToString(LocalTime timeToString){
+        return timeToString.format(formatter);
+    }
+
     public T getT() {
         return t;
     }
@@ -60,7 +71,13 @@ public class RaceResults<T> {
         return finalTime;
     }
 
-//    public LocalTime calculateFinalTime() {
+    public int getPenalty() { return penalty; }
+
+    public String getTimeToString(){
+        return timeToString;
+    }
+
+    //    public LocalTime calculateFinalTime() {
 //        int penalty = 0;
 //        for (String string : this.shootingResult) {
 //            for (int i = 0; i < string.length(); i++) {

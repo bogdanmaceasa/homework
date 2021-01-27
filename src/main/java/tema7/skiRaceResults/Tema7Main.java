@@ -1,4 +1,4 @@
-package tema7;
+package tema7.skiRaceResults;
 
 import lombok.extern.log4j.Log4j;
 
@@ -19,7 +19,7 @@ public class Tema7Main {
         File file = new File(fileLocation + fileName);
 
         try {
-//      METODA 1 - folosind o lista de String[] intermediara - dupa aceasta vom genera obiectele
+//          METODA 1 - folosind o lista de String[] intermediara - dupa aceasta vom genera obiectele
 //            List<String[]> skiStandingsToList = Files.readAllLines(file.toPath())
 //                    .stream()
 //                    .skip(1)
@@ -81,7 +81,7 @@ public class Tema7Main {
                 .build();
     }
 
-    private static void printResultsToFile(Set<RaceResults> skierRaceResults)throws IOException {
+    private static void printResultsToFile(Set<RaceResults> skierRaceResults) throws IOException {
 
         String separator = File.separator;
         String fileLocation = "src" + separator + "main" + separator + "resources" + separator;
@@ -95,39 +95,48 @@ public class Tema7Main {
         BufferedWriter writer = null;
         try {
             writer = new BufferedWriter(new FileWriter(fileLocation + fileName));
-        for (RaceResults<Skier> raceResults : skierRaceResults) {
-            skiFinalStandings.add(raceResults);
-        }
-        for (RaceResults<Skier> skier : skiFinalStandings) {
-            if (i == 1) {
-                writer.write("WINNER IS ****** " + skier.getT().getAthleteName() + " ******");
-                writer.newLine();
-                writer.write(" final time: " + skier.getFinalTime());
-                writer.newLine();
+            for (RaceResults<Skier> raceResults : skierRaceResults) {
+                skiFinalStandings.add(raceResults);
             }
-            if (i == 2) {
-                writer.write("Runner-up is " + skier.getT().getAthleteName() + ", final time: " + skier.getFinalTime());
-                writer.newLine();
-            }
-            if (i == 3) {
-                writer.write("Third place is " + skier.getT().getAthleteName() + ", final time: " + skier.getFinalTime());
-                writer.newLine();
-            }
-            if (i > 3) {
-                writer.write(i + "th ranking player is " + skier.getT().getAthleteName() + ", final time: " + skier.getFinalTime());
-                writer.newLine();
-            }
-            i++;
+            for (RaceResults<Skier> skier : skiFinalStandings) {
 
-        }
-    } catch (FileNotFoundException e) {
+                String outputString = "- "
+                        + String.format("%-15s", skier.getT().getAthleteName())
+                        + " - "
+                        + String.format("%-10s", (skier.setTimeToString(skier.getFinalTime())))
+                        + " ("
+                        + String.format("%-10s", (skier.setTimeToString(skier.getTime())))
+                        + " + "
+                        + skier.getPenalty()
+                        + "sec)";
+                
+                if (i == 1) {
+                    writer.write(String.format("%-13s", "Winner ") + outputString);
+                    writer.newLine();
+                }
+                if (i == 2) {
+                    writer.write(String.format("%-13s", "Runner-up ") + outputString);
+                    writer.newLine();
+                }
+                if (i == 3) {
+                    writer.write(String.format("%-13s", "Third place ") + outputString);
+                    writer.newLine();
+                }
+                if (i > 3) {
+                    writer.write(String.format("%-13s", i + "th ") + outputString);
+                    writer.newLine();
+                }
+                i++;
+
+            }
+        } catch (FileNotFoundException e) {
             System.out.println("Error while reading file.Please check " + fileName);
-    } catch (IOException e) {
+        } catch (IOException e) {
             System.out.println("Error while reading file.Please check " + fileName);
-    }finally {
+        } finally {
             writer.close();
             // DE CE CERE IOException ?!?!?!
         }
-}
+    }
 
 }

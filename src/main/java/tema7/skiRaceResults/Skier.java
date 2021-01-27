@@ -1,4 +1,4 @@
-package tema7;
+package tema7.skiRaceResults;
 
 /*
 Write a software that takes as an input a CSV file where every entry represents the results of a biathlon athlete.

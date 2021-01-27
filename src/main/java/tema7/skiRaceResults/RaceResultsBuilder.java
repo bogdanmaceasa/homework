@@ -1,7 +1,6 @@
-package tema7;
+package tema7.skiRaceResults;
 
 import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.List;
 
 public class RaceResultsBuilder {
@@ -29,6 +28,9 @@ public class RaceResultsBuilder {
                 }
             }
             raceResults.setFinalTime(raceResults.getTime().plusSeconds(penalty * 10));
+            raceResults.setPenalty(penalty*10);
+            raceResults.setTimeToString(raceResults.getFinalTime());
+
         }
         return this;
     }

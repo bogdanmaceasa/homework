@@ -1,6 +1,4 @@
-package tema7;
-
-import tema6.Person;
+package tema7.skiRaceResults;
 
 import java.util.Comparator;
 
