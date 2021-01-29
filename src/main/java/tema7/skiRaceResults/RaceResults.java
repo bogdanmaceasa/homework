@@ -1,10 +1,9 @@
 package tema7.skiRaceResults;
 
-import lombok.Builder;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.io.Serializable;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -13,7 +12,7 @@ import java.util.List;
 
 @NoArgsConstructor
 @ToString
-public class RaceResults<T> {
+public class RaceResults<T> implements Serializable {
 
     private T t;
     private List<String> shootingResult = new ArrayList<>();
@@ -22,16 +21,6 @@ public class RaceResults<T> {
     private int penalty;
 
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("mm'min':ss'sec'");
-
-    private String timeToString;
-
-//
-//    public RaceResults(T t, List<String> shootingResult,LocalTime time ){
-//        this.t = t;
-//        this.shootingResult = shootingResult;
-//        this.time = time;
-//
-//    }
 
     public void setT(T t) {
         this.t = t;
@@ -51,7 +40,7 @@ public class RaceResults<T> {
 
     public void setPenalty(int penalty) { this.penalty = penalty;}
 
-    public String setTimeToString(LocalTime timeToString){
+    public String timeToString(LocalTime timeToString){
         return timeToString.format(formatter);
     }
 
@@ -73,21 +62,5 @@ public class RaceResults<T> {
 
     public int getPenalty() { return penalty; }
 
-    public String getTimeToString(){
-        return timeToString;
-    }
-
-    //    public LocalTime calculateFinalTime() {
-//        int penalty = 0;
-//        for (String string : this.shootingResult) {
-//            for (int i = 0; i < string.length(); i++) {
-//                if (string.charAt(i) == 'o') {
-//                    penalty += 1;
-//                }
-//            }
-//        }
-//        this.finalTime = this.time.plusSeconds(penalty * 10);
-//        return this.finalTime;
-//    }
-
 }
+

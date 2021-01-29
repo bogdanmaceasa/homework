@@ -1,7 +1,0 @@
-Winner       - Piotr Piotr     - 30min:10sec (29min:40sec + 30sec)
-Runner-up    - Ion Tiriac      - 30min:23sec (29min:43sec + 40sec)
-Third place  - Piotr Jorgson   - 30min:30sec (29min:10sec + 80sec)
-4th          - Jimmy Smiles    - 30min:35sec (29min:15sec + 80sec)
-5th          - Jimmy Smitzer   - 30min:41sec (30min:01sec + 40sec)
-6th          - Piotr Jimmy     - 30min:50sec (30min:10sec + 40sec)
-7th          - Umar Jorgson    - 30min:57sec (30min:27sec + 30sec)
