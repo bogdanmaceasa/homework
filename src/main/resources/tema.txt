@@ -1,0 +1,15 @@
+first name, last name, date of birth
+Bogdan,Maceasa,1988/1/23
+Alex,Ionescu,1990/1/23
+Iulian,Maceasa,1988/1/31
+Umar,Jorgson,1998/3/3
+Jimmy,Smiles,2000/1/3
+Piotr,Jimmy,2001/7/3
+Piotr,Jorgson,2005/11/3
+Jimmy,Smitzer,2011/9/3
+Piotr,Piotr,2000/11/3
+Ion,Tiriac,2004/6/3
+
+
+
+

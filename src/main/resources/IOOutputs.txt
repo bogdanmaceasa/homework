@@ -1,77 +1,11 @@
-=========Printed from listCurrentDirectory at: Fri Jan 29 15:40:11 EET 2021=========
+=========Printed from listCurrentDirectory at: Mon Feb 01 21:39:01 EET 2021=========
+ComparatorForResults.java
+PublicMethods.java
+RaceResults.java
+RaceResultsBuilder.java
+Skier.java
+SkiRaceResultsMain.java
+=========Printed from listCurrentDirectory at: Tue Feb 02 12:18:26 EET 2021=========
 PublicMethods.java
 skiRaceResults
 Tema7Main.java
-=========Printed from listSpecificFiles at: Fri Jan 29 15:40:11 EET 2021=========
-PublicMethods.java
-Tema7Main.java
-=========Printed from fileAtPathExists at: Fri Jan 29 15:40:11 EET 2021=========
-file exists at the entered path
-=========Printed from canReadWriteFile at: Fri Jan 29 15:40:11 EET 2021=========
-file has read/write permissions
-=========Printed from isFileOrDirectory at: Fri Jan 29 15:40:11 EET 2021=========
-at this path there is file
-=========Printed from lastModified at: Fri Jan 29 15:40:11 EET 2021=========
-file was last modified at: Wed Jan 27 22:03:48 EET 2021
-=========Printed from fileSize at: Fri Jan 29 15:40:11 EET 2021=========
-file size is: 260bytes, 0.254Kb, 0.0002Mb.
-=========Printed from readWriteFile at: Fri Jan 29 15:40:11 EET 2021=========
-package tema7.skiRaceResults;
-
-import lombok.Builder;
-import lombok.Data;
-import lombok.ToString;
-
-@Builder
-@ToString
-@Data
-public class Skier {
-
-    private int athleteNumber;
-    private String athleteName;
-    private String countryCode;
-
-}
-=========Printed from readFirst3Lines at: Fri Jan 29 15:40:11 EET 2021=========
-package tema7.skiRaceResults;
-
-import lombok.Builder;
-=========Printed from readFirst3Lines at: Fri Jan 29 15:40:11 EET 2021=========
-=========Printed from listCurrentDirectory at: Fri Jan 29 15:43:42 EET 2021=========
-PublicMethods.java
-skiRaceResults
-Tema7Main.java
-=========Printed from listSpecificFiles at: Fri Jan 29 15:43:42 EET 2021=========
-PublicMethods.java
-Tema7Main.java
-=========Printed from fileAtPathExists at: Fri Jan 29 15:43:42 EET 2021=========
-file exists at the entered path
-=========Printed from canReadWriteFile at: Fri Jan 29 15:43:42 EET 2021=========
-file has read/write permissions
-=========Printed from isFileOrDirectory at: Fri Jan 29 15:43:42 EET 2021=========
-at this path there is file
-=========Printed from lastModified at: Fri Jan 29 15:43:42 EET 2021=========
-file was last modified at: Wed Jan 27 22:03:48 EET 2021
-=========Printed from fileSize at: Fri Jan 29 15:43:42 EET 2021=========
-file size is: 260bytes, 0.254Kb, 0.0002Mb.
-=========Printed from readWriteFile at: Fri Jan 29 15:43:42 EET 2021=========
-package tema7.skiRaceResults;
-
-import lombok.Builder;
-import lombok.Data;
-import lombok.ToString;
-
-@Builder
-@ToString
-@Data
-public class Skier {
-
-    private int athleteNumber;
-    private String athleteName;
-    private String countryCode;
-
-}
-=========Printed from readFirst3Lines at: Fri Jan 29 15:43:42 EET 2021=========
-package tema7.skiRaceResults;
-
-import lombok.Builder;

@@ -22,9 +22,9 @@ public class PublicMethods {
 9. Implement a method to store text file content line by line into an array.                                    => storeLinesFromFile
 10. Implement a method to write and read a plain text file.                                                     => readWriteFile
 11. Implement a method to append text to an existing file.                                                      => writeEntry
-12. Implement a method to read first 3 lines from a file.                                                       => readFirst3Lines ?!??! stream-wise ?!
-13. Implement a method to find the longest word in a text file.                                                 => findLongestWordInFile ?!?!?! print in java8 ?
-14. Implement a method to find a specific word in a text file, will return true if exists, false otherwise.     => findWordInFile !??!!? java8
+12. Implement a method to read first 3 lines from a file.                                                       => readFirst3Lines
+13. Implement a method to find the longest word in a text file.                                                 => findLongestWordInFile
+14. Implement a method to find a specific word in a text file, will return true if exists, false otherwise.     => findWordInFile
 */
 
     static String separator = File.separator;
@@ -167,10 +167,12 @@ public class PublicMethods {
             int i = 0;
             writeEntry(writer, "=========Printed from readFirst3Lines at: " + localTime + "=========");
 
-            while (i < 3) {
-                writeEntry(writer, reader.readLine());
-                i++;
-            }
+//            while (i < 3) {
+//                writeEntry(writer, reader.readLine());
+//                i++;
+//            }
+
+//            reader.lines().limit(3).forEach(s-> System.out.println(s));
         } catch (FileNotFoundException e) {
             log.error(e.getMessage(), e);
         } catch (IOException e) {
@@ -184,8 +186,8 @@ public class PublicMethods {
 
             System.out.println("=========Printed from findLongestWordInFile at: " + localTime + "=========");
             reader.lines()
-                  .forEach(s -> Arrays.stream(s.split("\\s"))
-                                      .forEach(PublicMethods::findMaxLength));
+                    .forEach(s -> Arrays.stream(s.split("\\s"))
+                                        .forEach(PublicMethods::findMaxLength));
             System.out.println(strMaxLength);
 
         } catch (FileNotFoundException e) {
@@ -203,7 +205,8 @@ public class PublicMethods {
             reader.lines()
                     .forEach(s -> Arrays.stream(s.split("\\s"))
                             .forEach(w -> isEqual(w,word))) ;
-
+//                            .flatMap(s -> Arrays.stream(s.split("\\s"))
+//                                .anyMatch(w -> w.equals(word)));
 
         } catch (FileNotFoundException e) {
             log.error(e.getMessage(), e);
