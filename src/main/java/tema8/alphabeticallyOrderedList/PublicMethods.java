@@ -6,8 +6,11 @@ import tema7.skiRaceResults.RaceResultsBuilder;
 import tema7.skiRaceResults.Skier;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.Month;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
@@ -21,6 +24,24 @@ public class PublicMethods {
     static BufferedWriter writer;
 
 
+    public static void fileProcessor(Path file, int month, String string) {
+
+        try {
+
+            Files.lines(file)
+                    .skip(1)
+                    .filter(s -> s.length() > 1)
+                    .map(PublicMethods::mapToPerson)
+                    .filter(s -> s.getDateOfBirth().getMonth().equals(Month.of(month)))
+                    .sorted(new ComparatorForPerson())
+//                    .forEach(s-> System.out.println(s));
+                    .forEach(s -> writeResult(s, string));
+
+        } catch (IOException e) {
+            System.out.println("Error while reading file.Please check ");
+        }
+    }
+
     public static Person mapToPerson(String line) {
         String[] fields = line.split(",");
         String[] date = fields[2].split("/");
@@ -32,27 +53,27 @@ public class PublicMethods {
 
     }
 
-    public static void writeResult(Person person){
-        writeFilteredOutput(writer,person);
+    public static void writeResult(Person person, String string) {
+        writeFilteredOutput(writer, person, string);
 
     }
 
-    public static BufferedWriter getWriterInstance() throws IOException {
+    public static BufferedWriter getWriterInstance(String string) throws IOException {
         if (writer != null) {
             return writer;
         }
-        return new BufferedWriter(new FileWriter(fileLocation + "resultsByMonth.txt", true));
+        return new BufferedWriter(new FileWriter(fileLocation + string, true));
     }
 
-    public static void writeFilteredOutput(BufferedWriter bufferedWriter, Person person){
+    public static void writeFilteredOutput(BufferedWriter bufferedWriter, Person person, String string) {
         try {
-            bufferedWriter = getWriterInstance();
+            bufferedWriter = getWriterInstance(string);
             String outputString = person.getLastName() + "," + person.getFirstName();
             bufferedWriter.write(outputString);
             bufferedWriter.newLine();
 
         } catch (IOException ioException) {
-            log.error(ioException.getMessage(),ioException);
+            log.error(ioException.getMessage(), ioException);
         } finally {
             try {
                 bufferedWriter.close();
@@ -60,6 +81,5 @@ public class PublicMethods {
                 e.printStackTrace();
             }
         }
-
-}
+    }
 }

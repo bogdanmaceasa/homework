@@ -1,14 +1,19 @@
 package tema8;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Fibonnaci {
 
     /*
 
-1. Write a method that can generate the first 100 numbers from Fibonacci series
-using Java 8 streams which returns the sequence as an array of
-int(BigInteger can fit all 100 Fobonacci numbers).
+
 
 Find all transactions in the year 2011 and sort them by value (small to high).
 What are all the unique cities where the traders work?
@@ -25,13 +30,37 @@ Find the transaction with the smallest value.
 
         String separator = File.separator;
         String fileLocation = "src" + separator + "main" + separator + "resources" + separator;
-        File outFile = new File(fileLocation + "rezultate.txt");
-        File file = new File(fileLocation + "tema.txt");
+//        File outFile = new File(fileLocation + "rezultate.txt");
+        File file = new File(fileLocation + "fibonacci.txt");
 
-        if (outFile.exists()) {
-            outFile.delete();
+        if (file.exists()) {
+            file.delete();
         }
 
+        try (Writer writer = new FileWriter(file)) {
+
+
+            BigInteger bigInteger = BigInteger.valueOf(0);
+            BigInteger bigInteger1 = BigInteger.valueOf(1);
+            //            ArrayList<BigInteger> string =
+            Stream.iterate(new BigInteger[]{bigInteger, bigInteger1}, i -> new BigInteger[]{i[1], i[0].add(i[1])})
+                    .limit(100)
+                    .map(i -> i[0])
+                    .forEach(i -> {
+                        try {
+                            writer.write(String.valueOf(i)+ "\n");
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    });
+//                    .collect(Collectors.toCollection(ArrayList<BigInteger>::new));
+//            for (BigInteger bigInteger : string) {
+//                writer.write(String.valueOf(bigInteger));
+//                writer.write("\n");
+//            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 }

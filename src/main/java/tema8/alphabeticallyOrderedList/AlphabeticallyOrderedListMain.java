@@ -20,12 +20,8 @@ Use unit tests to check the correctness.
 import lombok.extern.log4j.Log4j;
 
 import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.time.Month;
-
 
 @Log4j
 public class AlphabeticallyOrderedListMain {
@@ -34,30 +30,12 @@ public class AlphabeticallyOrderedListMain {
 
         String separator = File.separator;
         String fileLocation = "src" + separator + "main" + separator + "resources" + separator;
-        File outFile = new File (fileLocation + "resultsByMonth.txt");
+        String outFile = "resultByMonth.txt";
         Path file = Paths.get(fileLocation + "tema.txt");
 
-        if (outFile.exists()) {
-            outFile.delete();
+        if (new File (fileLocation + outFile).exists()) {
+            new File (fileLocation + outFile).delete();
         }
-//        ( BufferedWriter writer = PublicMethods.getWriterInstance(outFile))
-        try {
-
-            Files.lines(file)
-                    .skip(1)
-                    .filter(s -> s.length() > 1)
-                    .map(PublicMethods::mapToPerson)
-                    .filter(s-> s.getDateOfBirth().getMonth().equals(Month.JANUARY))
-                    .sorted(new ComparatorForPerson())
-                    .forEach(PublicMethods::writeResult);
-//                    .forEach(person -> System.out.println(person));
-
-//            List<String> array= Stream.iterate()
-
-        } catch (IOException e) {
-            System.out.println("Error while reading file.Please check ");
-        }
-
-
+        PublicMethods.fileProcessor(file,1,outFile);
     }
 }
