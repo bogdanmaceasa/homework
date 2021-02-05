@@ -79,22 +79,24 @@ public class Tema8Main {
 
 //Whats the highest value of all the transactions?
         System.out.println("\nWhats the highest value of all the transactions?:");
-        int max = Stream.of(transactions)
+//        int max =
+                Stream.of(transactions)
                 .sorted((tr1, tr2) -> tr2.getValue() - tr1.getValue())
-                .map(s -> s.getValue())
+                .map(Transaction::getValue)
                 .findFirst()
-                .get();
-        System.out.println(max);
+                .ifPresent(System.out::println);
+//        System.out.println(max);
 
 
 //Find the transaction with the smallest value.
         System.out.println("\nFind the transaction with the smallest value:");
-        int min = Stream.of(transactions)
+//        int min =
+                Stream.of(transactions)
                 .sorted((tr1, tr2) -> tr1.getValue() - tr2.getValue())
-                .map(s -> s.getValue())
+                .map(Transaction::getValue)
                 .findFirst()
-                .get();
-        System.out.println(min);
+                .ifPresent(System.out::println);
+//        System.out.println(min);
     }
 
 }
