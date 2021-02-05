@@ -12,18 +12,17 @@ import java.util.stream.Stream;
 
     1. Write a method that can generate the first 100 numbers from Fibonacci series
     using Java 8 streams which returns the sequence as an array of
-    int(BigInteger can fit all 100 Fobonacci numbers).
+    int(BigInteger can fit all 100 Fibonacci numbers).
 
  */
 
 
-public class Fibonnaci {
+public class Fibonacci {
 
     public static void main(String[] args) {
 
         String separator = File.separator;
         String fileLocation = "src" + separator + "main" + separator + "resources" + separator;
-//        File outFile = new File(fileLocation + "rezultate.txt");
         File file = new File(fileLocation + "fibonacci.txt");
 
         if (file.exists()) {
@@ -41,7 +40,7 @@ public class Fibonnaci {
                     .map(i -> i[0])
                     .forEach(i -> {
                         try {
-                            writer.write(String.valueOf(i)+ "\n");
+                            writer.write(i + "\n");
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
