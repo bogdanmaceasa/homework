@@ -2,7 +2,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
-import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import tema7.skiRaceResults.ComparatorForResults;
 import tema7.skiRaceResults.PublicMethods;
@@ -19,7 +18,7 @@ public class SkiResultsMainTest {
 
     @InjectMocks
     private PublicMethods skiRaceResults;
-    private ComparatorForResults comparatorForResults = new ComparatorForResults();
+    private final ComparatorForResults comparatorForResults = new ComparatorForResults();
 
     @Test
     public void csvLineToSkierResultsMappingTest() {
