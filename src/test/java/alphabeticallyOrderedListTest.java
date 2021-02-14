@@ -3,16 +3,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.MockitoJUnitRunner;
-import tema7.skiRaceResults.RaceResults;
-import tema7.skiRaceResults.Skier;
-import tema8.alphabeticallyOrderedList.ComparatorForPerson;
-import tema8.alphabeticallyOrderedList.Person;
-import tema8.alphabeticallyOrderedList.PublicMethods;
+import tema8Java8.alphabeticallyOrderedList.ComparatorForPerson;
+import tema8Java8.alphabeticallyOrderedList.Person;
+import tema8Java8.alphabeticallyOrderedList.PublicMethods;
 
-import java.time.LocalDate;
 import java.time.Month;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @RunWith(MockitoJUnitRunner.class)
 public class alphabeticallyOrderedListTest {
