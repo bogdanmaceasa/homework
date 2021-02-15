@@ -1,5 +1,6 @@
 /.gradle/
 /.idea/
+/build/
 
 /.gradle/6.3/
 /.gradle/6.5/
@@ -7,3 +8,5 @@
 /.gradle/checksums/
 /.gradle/vcs-1/
 /.idea/
+
+

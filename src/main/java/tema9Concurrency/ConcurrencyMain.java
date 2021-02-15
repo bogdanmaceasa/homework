@@ -4,7 +4,8 @@ package tema9Concurrency;
 Festival Statistics
 
 Every Festival has a gate, where people have to show their tickets.
-Write an application where every person is represented by a special Thread that is instantiated with random ticket data. Possible ticket types: full, full-vip, free-pass, one-day, one-day-vip
+Write an application where every person is represented by a special Thread that is instantiated with random ticket data.
+Possible ticket types: full, full-vip, free-pass, one-day, one-day-vip
 FestivalGate gate = new FestivalGate();
 TicketType ticketType = // this should be enum value randomly generated.
 FestivalAttendeeThread festivalAttendee = new FestivalAttendeeThread(ticketType, gate);
@@ -31,8 +32,17 @@ The app must randomly generate multiple attendee threads - at least 100
 Use Thread.sleep in both thread types.
  */
 
+import java.util.List;
+
+import static tema9Concurrency.TicketType.*;
+
 public class ConcurrencyMain {
 
+    public static void main(String[] args) {
+
+        List<TicketType> ticketType = List.of(TicketType.values());
+
+    }
 
 
 }
