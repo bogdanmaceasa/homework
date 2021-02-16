@@ -33,4 +33,8 @@ public class FestivalGate {
         }
         return "\n" + "=========================================\n" + "Gate: " + name + "\n" + "Total entries: " + sum + out;
     }
+
+    public Map<TicketType, Integer> getCheckinCounter() {
+        return checkinCounter;
+    }
 }

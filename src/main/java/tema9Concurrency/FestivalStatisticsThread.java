@@ -13,7 +13,10 @@ public class FestivalStatisticsThread extends Thread {
     @SneakyThrows
     @Override
     public void run() {
-        System.out.println(this.festivalGate);
+
+        if (this.festivalGate.getCheckinCounter().keySet()!=null){
+            System.out.println(this.festivalGate);
+        }
 
     }
 
