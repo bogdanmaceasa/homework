@@ -19,7 +19,7 @@ public class FestivalAttendeeThread extends Thread {
     public void run() {
         for (int i = 0; i < this.queueSize; i++) {
             //we assume that each attendee that passes through the gate has a random ticket, which will be checked at the gate
-            sleep(10); // time required for each person to actually pass through the gate
+            sleep(100); // time required for each person to actually pass through the gate
             this.festivalGate.counterIncrement(TicketType.getRandomTicket());
         }
     }

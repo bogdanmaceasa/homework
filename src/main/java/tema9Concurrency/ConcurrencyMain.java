@@ -43,7 +43,7 @@ public class ConcurrencyMain {
 
         FestivalGate gate = new FestivalGate("Main Gate");
         FestivalAttendeeThread festivalAttendee = new FestivalAttendeeThread(gate, 100);
-        FestivalStatisticsThread statsThread = new FestivalStatisticsThread(gate);
+//        FestivalStatisticsThread statsThread = new FestivalStatisticsThread(gate);
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         ScheduledExecutorService executorServiceScheduled = Executors.newSingleThreadScheduledExecutor();
 
@@ -62,7 +62,7 @@ public class ConcurrencyMain {
         } catch (InterruptedException | ExecutionException e) {
             log.error(e.getMessage());
         } finally {
-            System.out.println("Shutting down!!!!!!!!!!!");
+            System.out.println("Shutting down!");
             executorServiceScheduled.shutdown();
             executorService.shutdown();
 
