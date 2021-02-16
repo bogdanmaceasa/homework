@@ -32,17 +32,40 @@ The app must randomly generate multiple attendee threads - at least 100
 Use Thread.sleep in both thread types.
  */
 
-import java.util.List;
+import lombok.extern.log4j.Log4j;
 
-import static tema9Concurrency.TicketType.*;
+import java.util.concurrent.*;
 
+@Log4j
 public class ConcurrencyMain {
 
     public static void main(String[] args) {
 
-        List<TicketType> ticketType = List.of(TicketType.values());
+        FestivalGate gate = new FestivalGate("Main Gate");
+        FestivalAttendeeThread festivalAttendee = new FestivalAttendeeThread(gate, 100);
+        FestivalStatisticsThread statsThread = new FestivalStatisticsThread(gate);
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        ScheduledExecutorService executorServiceScheduled = Executors.newSingleThreadScheduledExecutor();
 
+        try {
+            Runnable printGateStatistics = () -> {
+                System.out.println(gate.toString());
+            };
+
+            Future<?> festivalAttendeesExecutor = executorService.submit(festivalAttendee::start);
+            ScheduledFuture<?> gateStatisticsScheduler = executorServiceScheduled.scheduleWithFixedDelay(printGateStatistics, 1, 1, TimeUnit.SECONDS);
+
+            while (!festivalAttendeesExecutor.isDone()) {
+                gateStatisticsScheduler.get();
+            }
+
+        } catch (InterruptedException | ExecutionException e) {
+            log.error(e.getMessage());
+        } finally {
+            System.out.println("Shutting down!!!!!!!!!!!");
+            executorServiceScheduled.shutdown();
+            executorService.shutdown();
+
+        }
     }
-
-
 }
