@@ -21,27 +21,28 @@ public class FestivalStatisticsThread extends Thread {
         return this.isFinished;
     }
 
-////    Needed for V2 of build
+
+//    Needed for V1 of build
 //    @SneakyThrows
 //    @Override
 //    public void run() {
-//        while(!getStatus()) {
-//            sleep(100);
-//            if (this.festivalGate.getCheckinCounter().keySet() != null) {
-//                System.out.println(this.festivalGate);
-//            }
+//        sleep(2000);
+//        if (this.festivalGate.getCheckinCounter().keySet() != null) {
+//            System.out.println(this.festivalGate);
 //        }
-//
 //    }
 
-//    Needed for V1 of build
+    ////    Needed for V2 of build
     @SneakyThrows
     @Override
     public void run() {
-        sleep(100);
-        if (this.festivalGate.getCheckinCounter().keySet() != null) {
-            System.out.println(this.festivalGate);
+        while (!getStatus()) {
+            sleep(100);
+            if (this.festivalGate.getCheckinCounter().keySet() != null) {
+                System.out.println(this.festivalGate);
+            }
         }
+
     }
 
 }

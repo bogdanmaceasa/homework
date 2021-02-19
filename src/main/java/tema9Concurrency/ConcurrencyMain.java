@@ -45,63 +45,47 @@ public class ConcurrencyMain {
         FestivalAttendeeThread festivalAttendee = new FestivalAttendeeThread(gate, 100);
         FestivalStatisticsThread statsThread = new FestivalStatisticsThread(gate);
 
-        ExecutorService executorService = Executors.newSingleThreadExecutor();
-        ExecutorService executorService1 = Executors.newSingleThreadExecutor();
-        ExecutorService executorService2 = Executors.newFixedThreadPool(1000);
-
-
-        try {
-
 //  ========================= V1 ==========================
 //      using a festival attendee thread that has a
 //      multiple ticket entries ( i.e. new FestivalAttendeeThread(gate, 100) )
 //      REQUIRES V1 from StatisticsThread run() AND FestivalAttendee run()
-
-//          start the festivalAttendee thread via executor service
-            executorService.submit(festivalAttendee::start);
-            System.out.println("WTF");
-
-//          runnable for starting the the statsthread
-            Runnable printGateStatistics = () -> {
-                System.out.println("WTF4");
-                statsThread.run();
-            };
-            System.out.println("WTF1");
-
-            executorService1.submit(printGateStatistics);
-            System.out.println("WTF2");
-            while (festivalAttendee.isAlive()) {
-                System.out.println("WTF3");
-                statsThread.run();
-            }
+//
+//            festivalAttendee.start();
+//            System.out.println("WTF");
+//
+//            while (festivalAttendee.isAlive()) {
+//                System.out.println("WTF3");
+//                statsThread.run();
+//            }
 //  ========================== V2 ==========================
 //      using a instance with a single ticket,
 //      instantiated any number of times via a a for-loop
 //      REQUIRES V2 from StatisticsThread run() AND FestivalAttendee run()
-//
-//            //runnable for starting the the statsthread
-//            Runnable printGateStatistics = () -> {
-//                System.out.println("WTF4");
-//                statsThread.run();
-//            };
-//
-//            // add the runnable to the executorservice
-//            executorService2.execute(printGateStatistics);
-//
-//            // start a lot of attendee instances
-//            for (int i = 0; i < 500; i++) {
-//                Thread.sleep(10);
-//                executorService2.execute(new FestivalAttendeeThread(gate)::start);
-//            }
-//
-//            //once the instances are finished - the stat gets a indication that the previous execution is finished, which stops the stat thread
-//            statsThread.setFinished();
 
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
+        ExecutorService executorService2 = Executors.newFixedThreadPool(10);
+        try {
+
+            //runnable for starting the the statsthread
+            Runnable printGateStatistics = () -> {
+                System.out.println("WTF4");
+                statsThread.run();
+            };
+
+            // add the runnable to the executorservice
+            executorService2.execute(printGateStatistics);
+
+            // start a lot of attendee instances
+            for (int i = 0; i < 500; i++) {
+                Thread.sleep(10);
+                executorService2.execute(new FestivalAttendeeThread(gate)::start);
+            }
+
+            //once the instances are finished - the stat gets a indication that the previous execution is finished, which stops the stat thread
+            statsThread.setFinished();
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         } finally {
-            executorService1.shutdown();
-            executorService.shutdown();
             executorService2.shutdown();
             System.out.println("Shutting down!");
 
