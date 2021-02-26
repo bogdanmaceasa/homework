@@ -7,11 +7,9 @@ public class FestivalStatisticsThread extends Thread {
     private boolean isFinished = false;
     private FestivalGate festivalGate;
 
-
     FestivalStatisticsThread(FestivalGate festivalGate) {
         this.festivalGate = festivalGate;
     }
-
 
     public synchronized void setFinished() {
         this.isFinished = true;
@@ -20,7 +18,6 @@ public class FestivalStatisticsThread extends Thread {
     public synchronized boolean getStatus() {
         return this.isFinished;
     }
-
 
 //    Needed for V1 of build
 //    @SneakyThrows
@@ -37,13 +34,19 @@ public class FestivalStatisticsThread extends Thread {
     @Override
     public void run() {
         while (!getStatus()) {
-            sleep(100);
+            sleep(10);
             if (this.festivalGate.getCheckinCounter().keySet() != null) {
                 System.out.println(this.festivalGate);
             }
         }
-
     }
+
+    public void readGateStats() {
+        if (this.festivalGate.getCheckinCounter().keySet() != null) {
+            System.out.println(this.festivalGate);
+        }
+    }
+
 
 }
 

@@ -33,4 +33,5 @@ public enum TicketType {
      public static List<TicketType> getVALUES() {
           return TICKET_TYPE_LIST;
      }
+
 }

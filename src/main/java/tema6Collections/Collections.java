@@ -57,6 +57,7 @@ public class Collections {
         addresses3.add("Timisoara");
 
 
+
         /*   Generate Hobby Lists  */
         List<Hobby> hobbyList1 = new ArrayList<>();
         List<Hobby> hobbyList2 = List.of(new Hobby("Tenis",10,addresses),
