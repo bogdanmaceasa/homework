@@ -143,7 +143,7 @@ public class DepartmentDAOImplementation implements DepartmentDAO{
 
     private Connection getConnection() {
         try {
-            return DriverManager.getConnection("jdbc:mysql://localhost:3306/hr2",
+            return DriverManager.getConnection("jdbc:mysql://localhost:3306/hr",
                     "admin",
                     "password");
 

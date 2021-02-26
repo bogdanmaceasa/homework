@@ -4,6 +4,7 @@ import tema10SQL.JDBC.DAO.DepartmentDAO;
 import tema10SQL.JDBC.DAO.DepartmentDAOImplementation;
 import tema10SQL.JDBC.DAO.EmployeeDAO;
 import tema10SQL.JDBC.DAO.EmployeeDAOImplementation;
+import tema10SQL.JDBC.model.Department;
 import tema10SQL.JDBC.model.Employee;
 
 import java.time.LocalDate;
@@ -27,6 +28,10 @@ Am atasat si varianta in care am modificat numele sa nu mai fie cu majuscule
         EmployeeDAO employeeDAO = new EmployeeDAOImplementation();
         DepartmentDAO departmentDAO = new DepartmentDAOImplementation();
         employeeDAO.findAll().forEach(System.out::println);
+
+        System.out.println("___________________________");
+
+        departmentDAO.findAll().forEach(System.out::println);
 
         System.out.println("___________________________");
 
@@ -59,6 +64,16 @@ Am atasat si varianta in care am modificat numele sa nu mai fie cu majuscule
         System.out.println("___________________________");
 
         employeeDAO.delete(employee.getEmployeeNo());
+
+        Department department = Department.builder()
+                .departmentCity("BRASOV")
+                .departmentId(50)
+                .departmentName("OPERATIONS")
+                .build();
+
+        departmentDAO.insertDepartment(department);
+
+        departmentDAO.findDepartment(50);
 
 //        new EmployeeDAOImplementation().findEmployeeNumber();
     }
