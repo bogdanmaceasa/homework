@@ -13,18 +13,18 @@ public class FestivalGate {
         this.name = name;
     }
 
-    synchronized void counterIncrement(TicketType ticketType) {
+    void counterIncrement(TicketType ticketType) {
 
         if (this.checkinCounter.containsKey(ticketType)) {
-            int occ = this.checkinCounter.get(ticketType);
-            this.checkinCounter.put(ticketType, ++occ);
+            int ticketOccurrenceNumber = this.checkinCounter.get(ticketType);
+            this.checkinCounter.put(ticketType, ++ticketOccurrenceNumber);
         } else {
             this.checkinCounter.put(ticketType, 1);
         }
     }
 
     @Override
-    public synchronized String toString() {
+    public String toString() {
         String out = "";
         int sum = 0;
         for (TicketType ticketType : this.checkinCounter.keySet()) {
