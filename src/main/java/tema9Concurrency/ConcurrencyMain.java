@@ -49,13 +49,13 @@ public class ConcurrencyMain {
 //      using a festival attendee thread that has a
 //      multiple ticket entries ( i.e. new FestivalAttendeeThread(gate, 100) )
 //      REQUIRES V1 from StatisticsThread run() AND FestivalAttendee run()
-//
+
 //            festivalAttendee.start();
 //            System.out.println("WTF");
 //
 //            while (festivalAttendee.isAlive()) {
 //                System.out.println("WTF3");
-//                statsThread.run();
+//                statsThread.start();
 //            }
 //  ========================== V2 ==========================
 //      using a instance with a single ticket,
@@ -68,7 +68,9 @@ public class ConcurrencyMain {
             //runnable for starting the the statsthread
             Runnable printGateStatistics = () -> {
                 System.out.println("WTF4");
-                statsThread.run();
+                statsThread.start();
+//                statsThread.readGateStats();
+
             };
 
             // add the runnable to the executorservice
@@ -77,13 +79,14 @@ public class ConcurrencyMain {
             // start a lot of attendee instances
             for (int i = 0; i < 500; i++) {
                 Thread.sleep(10);
-                executorService2.execute(new FestivalAttendeeThread(gate)::start);
+//                executorService2.execute(new FestivalAttendeeThread(gate)::start);
+                new FestivalAttendeeThread(gate).start();
             }
 
             //once the instances are finished - the stat gets a indication that the previous execution is finished, which stops the stat thread
             statsThread.setFinished();
 
-        } catch (InterruptedException e) {
+        } catch (/*InterruptedException e*/ Exception e) {
             e.printStackTrace();
         } finally {
             executorService2.shutdown();

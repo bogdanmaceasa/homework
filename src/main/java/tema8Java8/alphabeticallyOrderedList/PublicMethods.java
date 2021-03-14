@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.Comparator;
 
 @Log4j
 public class PublicMethods {
@@ -27,6 +28,9 @@ public class PublicMethods {
                     .map(PublicMethods::mapToPerson)
                     .filter(s -> s.getDateOfBirth().getMonth().equals(Month.of(month)))
                     .sorted(new ComparatorForPerson())
+//                    .sorted(Comparator.comparing((Person p1) -> p1.getLastName())
+//                            .thenComparing(p -> p.getFirstName())
+//                            .thenComparing(p -> p.getDateOfBirth()))
 //                    .forEach(s-> System.out.println(s));
                     .forEach(s -> writeResult(s, string));
 
