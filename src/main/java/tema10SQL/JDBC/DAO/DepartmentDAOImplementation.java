@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Log4j
-public class DepartmentDAOImplementation implements DepartmentDAO{
+public class DepartmentDAOImplementation implements DepartmentDAO {
 
     @Override
     public List<Department> findAll() {

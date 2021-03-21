@@ -27,7 +27,7 @@ public class Library {
 
         for (Book book : libraryDataBase) {
             if (book != null)
-                if ( book.getName() != "Unnamed book") { /*!book.equals(new Book() creates a new instance for each element that is not null which gets output at the constructor level*/
+                if (book.getName() != "Unnamed book") { /*!book.equals(new Book() creates a new instance for each element that is not null which gets output at the constructor level*/
                     System.out.println(book.toString());
                     indexOfValidBooks++;
                 }

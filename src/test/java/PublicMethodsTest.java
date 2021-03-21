@@ -8,9 +8,8 @@ public class PublicMethodsTest {
     @Test
     public void firstTest() {
         double testPrime = PublicMethods.tempConverter(212);
-        assertEquals("comment", true, testPrime );
+        assertEquals("comment", true, testPrime);
     }
-
 
 
 }

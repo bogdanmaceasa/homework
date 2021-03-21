@@ -2,13 +2,15 @@ package tema3Library;
 
 import java.util.Set;
 
-interface BookActionsTemplate{
+interface BookActionsTemplate {
 
     void checkOutBook();
-    void returnBook();
-    String toString();
-    void readBook();
 
+    void returnBook();
+
+    String toString();
+
+    void readBook();
 
 
 }

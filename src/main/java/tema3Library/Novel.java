@@ -12,14 +12,14 @@ class Novel extends Book {
         System.out.print("It seems to be a novel.");
     }
 
-    Novel(String name, String author, int pagNum, String novelType ) {
-        super(name,author,pagNum);
+    Novel(String name, String author, int pagNum, String novelType) {
+        super(name, author, pagNum);
         this.novelType = novelType;
         System.out.print("It is a novel.");
     }
 
-    Novel(String name, String author, String novelType ) {
-        super(name,author);
+    Novel(String name, String author, String novelType) {
+        super(name, author);
         this.novelType = novelType;
         System.out.print("It is a novel.");
     }
@@ -33,7 +33,7 @@ class Novel extends Book {
     }
 
     @Override
-    public void readBook(){
+    public void readBook() {
         System.out.println("Someone is reading some amazing novel, please be quiet while in the library!");
     }
 

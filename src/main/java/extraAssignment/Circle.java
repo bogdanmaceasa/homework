@@ -3,24 +3,25 @@ package extraAssignment;
 
 import java.util.Objects;
 
-public class Circle extends Shape{
+public class Circle extends Shape {
 
     private double area;
     private double perimeter;
     private double radius;
 
-    public Circle(double radius){
+    public Circle(double radius) {
         this.radius = radius;
-        this.area= Math.PI*this.radius*this.radius;
-        this.perimeter=this.radius*2*Math.PI;
+        this.area = Math.PI * this.radius * this.radius;
+        this.perimeter = this.radius * 2 * Math.PI;
     }
 
     @Override
-    public void getArea(){
-        System.out.println("Area for Triangle is: " + this.area );
+    public void getArea() {
+        System.out.println("Area for Triangle is: " + this.area);
     }
+
     @Override
-    public void getPerimeter(){
+    public void getPerimeter() {
         System.out.println("Area for Triangle is: " + this.perimeter);
     }
 

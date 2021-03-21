@@ -6,24 +6,25 @@ import lombok.ToString;
 import java.util.Objects;
 
 
-public class Square extends Shape{
+public class Square extends Shape {
 
     private double area;
     private double perimeter;
     private double length;
 
-    public Square( double length ){
+    public Square(double length) {
         this.length = length;
-        this.perimeter = this.length*4;
-        this.area = this.length*this.length;
+        this.perimeter = this.length * 4;
+        this.area = this.length * this.length;
     }
 
     @Override
-    public void getArea(){
-        System.out.println("Area for Triangle is: " + this.area );
+    public void getArea() {
+        System.out.println("Area for Triangle is: " + this.area);
     }
+
     @Override
-    public void getPerimeter(){
+    public void getPerimeter() {
         System.out.println("Area for Triangle is: " + this.perimeter);
     }
 

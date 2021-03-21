@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
+
+    <title>Short Restaurants MVC website</title>
+
+</head>
+<body>
+
+<header>
+    <h1 style="alignment: center">Restaurant list</h1>
+</header>
+
+<table border="10" , style="color: midnightblue; width: 100%">
+    <tr id="tableHeaderId">
+        <th>Id</th>
+        <th>Job</th>
+        <th>Name</th>
+        <th>Salary</th>
+    </tr>
+    <tr th:each="restaurant:${restaurantList}">
+        <td th:text="${restaurant.id}"></td>
+        <td th:text="${restaurant.name}"></td>
+        <td th:text="${restaurant.details}"></td>
+        <td th:text="${restaurant.speciality}"></td>
+        <td><a th:href="@{/restaurants/{restaurantId}/edit(restaurantId=${restaurant.id})}">EDIT</a></td>
+        <td><a th:href="@{/restaurants/{restaurantId}/edit(restaurantId=${restaurant.id})}">DELETE</a></td>
+        <td>
+            <form th:action="@{/restaurants/{restaurantId}/delete(restaurantId=${restaurant.id})}"
+                  method="POST">
+                Delete this employee? <input type="submit" th:value="Yes"/>
+            </form>
+        </td>
+    </tr>
+</table>
+
+<!--<form th:action="@{'/employees/add'}" th:object="${employeeToAdd}" th:method="POST">-->
+<!--    <fieldset style="color:blue">-->
+<!--        <legend style="color:blue"><h2>Add Employee</h2></legend>-->
+
+<!--        <label for="name">Name:</label><br/>-->
+<!--        <input id="name" type="text" name="name" th:field="*{name}"><br>-->
+
+<!--        <label for="salary">Salary:</label><br/>-->
+<!--        <input id="salary" type="text" name="color" th:field="*{salary}"><br>-->
+
+<!--        <label for="job">Job:</label>-->
+<!--        <input id="job" type="text" name="job" th:field="*{job}"><br>-->
+
+<!--        <label for="department">Department:</label>-->
+<!--        <input id="department" type="text" name="department" th:field="*{department}"><br>-->
+
+<!--        <label for="manager">Manager:</label>-->
+<!--        <input id="manager" type="text" name="manager" th:field="*{manager}"><br>-->
+
+<!--        <input type="submit" value="Insert New Employee" style="color:blue;">-->
+<!--    </fieldset>-->
+<!--</form>-->
+
+<p><a href="/employees/add">Insert new employee</a></p>
+
+</body>
+</html>

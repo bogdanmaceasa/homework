@@ -18,7 +18,9 @@ public class SkiRaceResultsMain {
         File outFile = new File(fileLocation + "RaceFinalResultsStream.txt");
         File file = new File(fileLocation + fileName);
 
-        if ( outFile.exists() ){ outFile.delete(); }
+        if (outFile.exists()) {
+            outFile.delete();
+        }
 
         try {
 //          METODA 1 - folosind o List<String[]> intermediara - din elementele acesteia vom genera obiectele
@@ -53,10 +55,10 @@ public class SkiRaceResultsMain {
 //          METODA 2 - folosind un Set<RaceResults<Skier>> peste care vom opera operatia de print al rezultatului
 //
             Set<RaceResults<Skier>> skiStandingsToSet = Files.lines(file.toPath())
-                                                            .skip(1)
-                                                            .map(PublicMethods::mapLineToSkierResults)
-                                                            .sorted(new ComparatorForResults())
-                                                            .collect(Collectors.toCollection(LinkedHashSet::new));
+                    .skip(1)
+                    .map(PublicMethods::mapLineToSkierResults)
+                    .sorted(new ComparatorForResults())
+                    .collect(Collectors.toCollection(LinkedHashSet::new));
             PublicMethods.printResultsToFile(skiStandingsToSet);
 
 //          METODA 3 - folosind streams si consumand Streamul pentru a printa in fisier fiecare element

@@ -10,5 +10,4 @@ public class ComparatorForResults implements Comparator<RaceResults> {
     }
 
 
-
 }

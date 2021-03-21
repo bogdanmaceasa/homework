@@ -1,17 +1,18 @@
 package tema4ATM.atm;
 
 import org.apache.commons.lang3.time.DateUtils;
+
 import java.util.Date;
 import java.util.Objects;
 import java.util.Random;
 
 
-public class Card{
+public class Card {
 
     private final Date expirationDate;
     private String ownerName;
     private final String cardNumber;
-    private int PIN=1234;
+    private int PIN = 1234;
 
     public Card(String ownerName) {
         Date d = new Date();
@@ -20,7 +21,7 @@ public class Card{
         this.cardNumber = "4254" + generateRandomCardNumber();
     }
 
-    public void changePIN ( int pin) {
+    public void changePIN(int pin) {
         this.PIN = pin;
         System.out.println("PIN has been updated!");
     }
@@ -42,24 +43,26 @@ public class Card{
     }
 
     @Override
-    public int hashCode() { return Objects.hash(expirationDate, ownerName, cardNumber, PIN); }
+    public int hashCode() {
+        return Objects.hash(expirationDate, ownerName, cardNumber, PIN);
+    }
 
     @Override
     public String toString() {
         return "Card Details\n" +
                 "expires on: " + expirationDate +
                 "\nCardholder Name: '" + ownerName + '\'' +
-                "\nCard Number: '" + cardNumber +"\'";
+                "\nCard Number: '" + cardNumber + "\'";
     }
 
-    public String generateRandomCardNumber (){
+    public String generateRandomCardNumber() {
         String digits = "0123456789";
         StringBuilder s = new StringBuilder();
         Random random = new Random();
-        for ( int i = 1; i<=3; i++){
+        for (int i = 1; i <= 3; i++) {
             s.append(" ");
-            for ( int j = 0 ; j<4; j++){
-                int index = (int)((digits.length()-1)* Math.random());
+            for (int j = 0; j < 4; j++) {
+                int index = (int) ((digits.length() - 1) * Math.random());
                 s.append(digits.charAt(index));
             }
         }

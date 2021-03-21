@@ -219,7 +219,7 @@ public class PublicMethods {
     }
 
     public static boolean isDouplicate(int i, char[] array) {
-        for (int j=i+1; j<array.length; j++) {
+        for (int j = i + 1; j < array.length; j++) {
             if (array[i] == array[j])
                 return true;
         }

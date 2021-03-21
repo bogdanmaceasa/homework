@@ -1,6 +1,7 @@
 package tema4ATM.atm;
 
 import lombok.ToString;
+
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -45,15 +46,16 @@ public class User {
                 System.out.println(i + ") " + bankAccount.toString());
             }
             System.out.println("\n");
-        } else System.out.println("You can only add a card for account: \n1) " + this.bankAccounts[0].toString() + "\n\n");
+        } else
+            System.out.println("You can only add a card for account: \n1) " + this.bankAccounts[0].toString() + "\n\n");
 
         System.out.println("Please type the account you want to add the card for");
         Scanner sc = new Scanner(System.in);
         byte b = sc.nextByte();
 
-        if ( b <= numberOfBankAccounts){
-            Card newCard = new Card(this.firstName+" "+this.lastName);
-            this.bankAccounts[b-1].attachCard(newCard);
+        if (b <= numberOfBankAccounts) {
+            Card newCard = new Card(this.firstName + " " + this.lastName);
+            this.bankAccounts[b - 1].attachCard(newCard);
             this.cards = addCardToArray(cards, newCard);
             this.numberOfCards++;
         }
@@ -77,7 +79,7 @@ public class User {
     }
 
     public void printBankAccounts() {
-        for ( BankAccount bankAccount : this.bankAccounts){
+        for (BankAccount bankAccount : this.bankAccounts) {
             System.out.println(bankAccount.toString());
         }
     }
@@ -119,8 +121,8 @@ public class User {
         return isLocked;
     }
 
-    public void changePassword (String password){
-       this.password = password;
+    public void changePassword(String password) {
+        this.password = password;
     }
 
     public Card[] getCards() {

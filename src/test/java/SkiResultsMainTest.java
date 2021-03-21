@@ -48,11 +48,11 @@ public class SkiResultsMainTest {
         RaceResults<Skier> skier3 = skiRaceResults.mapLineToSkierResults(line3);
 
         // When
-        List<RaceResults<Skier>> sortedList =  List.of(skier1,skier2,skier3).stream().sorted(comparatorForResults).collect(Collectors.toList());
-        List<RaceResults<Skier>> sortedManualTestList = List.of(skier1,skier2,skier3);
+        List<RaceResults<Skier>> sortedList = List.of(skier1, skier2, skier3).stream().sorted(comparatorForResults).collect(Collectors.toList());
+        List<RaceResults<Skier>> sortedManualTestList = List.of(skier1, skier2, skier3);
 
         // Then
-        Assert.assertEquals(sortedManualTestList,sortedList);
+        Assert.assertEquals(sortedManualTestList, sortedList);
 
     }
 

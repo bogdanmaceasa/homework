@@ -3,16 +3,16 @@ package tema7Streams.skiRaceResults;
 import java.time.LocalTime;
 import java.util.List;
 
-public class RaceResultsBuilder <T> {
+public class RaceResultsBuilder<T> {
 
     private RaceResults<T> raceResults = new RaceResults<>();
 
-    public RaceResultsBuilder<T> withT(T t){
+    public RaceResultsBuilder<T> withT(T t) {
         raceResults.setT(t);
         return this;
     }
 
-    public RaceResultsBuilder<T> withShootingResults(List<String> stringList){
+    public RaceResultsBuilder<T> withShootingResults(List<String> stringList) {
         raceResults.setShootingResult(stringList);
         return this;
     }
@@ -28,14 +28,14 @@ public class RaceResultsBuilder <T> {
                 }
             }
             raceResults.setFinalTime(raceResults.getTime().plusSeconds(penalty * 10));
-            raceResults.setPenalty(penalty*10);
+            raceResults.setPenalty(penalty * 10);
             raceResults.timeToString(raceResults.getFinalTime());
 
         }
         return this;
     }
 
-    public  RaceResults<T> build(){
+    public RaceResults<T> build() {
         return raceResults;
     }
 }

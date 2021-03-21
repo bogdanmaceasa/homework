@@ -11,7 +11,7 @@ public class ATMTests {
     @InjectMocks
     private BankAccount[] bankAccounts = {new BankAccount(), new BankAccount(), new BankAccount()};
     private Card[] cards = {new Card("m"), new Card("ma"), new Card("bo"), new Card("iu")};
-    private User userTest = new User("firstName", "lastName", "password", bankAccounts, cards );
+    private User userTest = new User("firstName", "lastName", "password", bankAccounts, cards);
 
     @Mock
     private User user;
@@ -22,18 +22,16 @@ public class ATMTests {
     /*  ATM methods tests  */
 
     @Test
-    public void testBankAccountsForUser(){
+    public void testBankAccountsForUser() {
 
 //        when(bankAccount.cardsForBankAccount()).thenReturn(cards); //-> NullPointerException?!
 //        when(user.bankAccountsForUser()).thenReturn(bankAccounts);
 
         BankAccount[] test = userTest.bankAccountsForUser();
-        Assert.assertEquals("Test for output of User Bank Accounts",bankAccounts,test );
+        Assert.assertEquals("Test for output of User Bank Accounts", bankAccounts, test);
 
 
     }
-
-
 
 
 }

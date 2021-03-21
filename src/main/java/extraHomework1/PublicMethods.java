@@ -50,27 +50,25 @@ public class PublicMethods {
     }
 
 
-    public static boolean checkElement(int[] a, int b, int c){
+    public static boolean checkElement(int[] a, int b, int c) {
 
-        for ( int i=0; i<b; i++){
-            if(a[i] == c)
+        for (int i = 0; i < b; i++) {
+            if (a[i] == c)
                 return true;
         }
 
         return false;
     }
 
-    public static int returnIndex(int[] a, int b, int c){
+    public static int returnIndex(int[] a, int b, int c) {
 
-        int i=0;
-        for ( i=0; i<b; i++){
-            if(a[i] == c)
+        int i = 0;
+        for (i = 0; i < b; i++) {
+            if (a[i] == c)
                 break;
         }
         return i;
     }
-
-
 
 
 }

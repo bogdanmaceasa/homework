@@ -517,7 +517,7 @@ public class StringManipulation {
 
         String str = "";
         int token2 = 0;
-        if ( charsExist ) {
+        if (charsExist) {
             for (int i = 0; i <= token; i++) {
                 if (strArray[i] != "") {
                     str += "\n" + strArray[i];

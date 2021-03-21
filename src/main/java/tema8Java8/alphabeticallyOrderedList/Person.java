@@ -1,7 +1,6 @@
 package tema8Java8.alphabeticallyOrderedList;
 
 
-
 import lombok.Builder;
 import lombok.Data;
 

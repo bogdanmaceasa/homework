@@ -26,7 +26,6 @@ public class SumPrime100 {
         }
 
 
-
         System.out.println("the sum for the first 100 prime numbers is: " + sum);
     }
 

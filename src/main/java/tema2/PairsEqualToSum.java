@@ -20,9 +20,9 @@ public class PairsEqualToSum {
         int sum = sc.nextInt();
         boolean anyPairs = false;
         System.out.println("the pairs in the array are: ");
-        for (int i = 0; i< length; i++ ){
-            for (int j = i; j< length; j++ ){
-                if ( (array[i] + array[j]) == sum ){
+        for (int i = 0; i < length; i++) {
+            for (int j = i; j < length; j++) {
+                if ((array[i] + array[j]) == sum) {
                     anyPairs = true;
                     System.out.println("(" + array[i] + "," + array[j] + ")");
                 }

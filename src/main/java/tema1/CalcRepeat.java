@@ -19,7 +19,7 @@ public class CalcRepeat {
             System.out.println("enter the desired operation to be performed ");
             String operation = sc.next();
 
-            PublicMethods.Calculator(n1,n2,operation);
+            PublicMethods.Calculator(n1, n2, operation);
 
             System.out.println("Do you want to perform another calculation? ( y / n )");
             String cont = sc.next();

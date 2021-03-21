@@ -33,9 +33,9 @@ public class AlphabeticallyOrderedListMain {
         String outFile = "resultByMonth.txt";
         Path file = Paths.get(fileLocation + "tema.txt");
 
-        if (new File (fileLocation + outFile).exists()) {
-            new File (fileLocation + outFile).delete();
+        if (new File(fileLocation + outFile).exists()) {
+            new File(fileLocation + outFile).delete();
         }
-        PublicMethods.fileProcessor(file,1,outFile);
+        PublicMethods.fileProcessor(file, 1, outFile);
     }
 }

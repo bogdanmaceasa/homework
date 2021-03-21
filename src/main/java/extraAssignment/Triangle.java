@@ -3,28 +3,29 @@ package extraAssignment;
 
 import java.util.Objects;
 
-public class Triangle extends Shape{
+public class Triangle extends Shape {
 
     private double area;
     private double perimeter;
     private double side1, side2, side3;
 
 
-    public Triangle(double side1, double side2, double side3){
-        this.side1= side1;
-        this.side2= side2;
-        this.side3= side3;
-        this.perimeter=this.side1+ this.side2 + this.side3;
-        double semi = this.perimeter/2;
-        this.area=Math.sqrt(semi*(semi-this.side1)*(semi-this.side2)*(semi-this.side3));
+    public Triangle(double side1, double side2, double side3) {
+        this.side1 = side1;
+        this.side2 = side2;
+        this.side3 = side3;
+        this.perimeter = this.side1 + this.side2 + this.side3;
+        double semi = this.perimeter / 2;
+        this.area = Math.sqrt(semi * (semi - this.side1) * (semi - this.side2) * (semi - this.side3));
     }
 
     @Override
-    public void getArea(){
-        System.out.println("Area for Triangle is: " + this.area );
+    public void getArea() {
+        System.out.println("Area for Triangle is: " + this.area);
     }
+
     @Override
-    public void getPerimeter(){
+    public void getPerimeter() {
         System.out.println("Area for Triangle is: " + this.perimeter);
     }
 

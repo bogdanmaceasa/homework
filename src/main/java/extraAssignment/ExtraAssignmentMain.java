@@ -28,22 +28,20 @@ public class ExtraAssignmentMain {
         Shape[] shapes = new Shape[5];
         shapes[0] = new Square(10.2);
         shapes[1] = new Square(10.20);
-        shapes[2] = new Triangle(4,7,20);
+        shapes[2] = new Triangle(4, 7, 20);
         shapes[3] = new Circle(5);
-        shapes[4] = new Rectangle(5.1,4.2);
+        shapes[4] = new Rectangle(5.1, 4.2);
 
-        for ( Shape shape : shapes ){
+        for (Shape shape : shapes) {
 //            boolean duplicate = shapeSet.add(shape);
-            if ( !shapeSet.add(shape) ){
+            if (!shapeSet.add(shape)) {
                 System.out.println("Duplicate shape");
             }
         }
 
-        for ( Shape shape : shapeSet){
+        for (Shape shape : shapeSet) {
             System.out.println(shape.toString());
         }
-
-
 
 
     }

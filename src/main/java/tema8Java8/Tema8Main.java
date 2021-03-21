@@ -2,6 +2,7 @@ package tema8Java8;
 
 import tema8Java8.transaction.Trader;
 import tema8Java8.transaction.Transaction;
+
 import java.util.stream.Stream;
 
 public class Tema8Main {
@@ -80,7 +81,7 @@ public class Tema8Main {
 //Whats the highest value of all the transactions?
         System.out.println("\nWhats the highest value of all the transactions?:");
 //        int max =
-                Stream.of(transactions)
+        Stream.of(transactions)
                 .sorted((tr1, tr2) -> tr2.getValue() - tr1.getValue())
                 .map(Transaction::getValue)
                 .findFirst()
@@ -91,7 +92,7 @@ public class Tema8Main {
 //Find the transaction with the smallest value.
         System.out.println("\nFind the transaction with the smallest value:");
 //        int min =
-                Stream.of(transactions)
+        Stream.of(transactions)
                 .sorted((tr1, tr2) -> tr1.getValue() - tr2.getValue())
                 .map(Transaction::getValue)
                 .findFirst()

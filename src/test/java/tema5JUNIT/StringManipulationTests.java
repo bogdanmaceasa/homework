@@ -14,96 +14,96 @@ public class StringManipulationTests {
     /*  String Manipulation tests  */
 
     @Test
-    public void testReverseStringPublic(){
+    public void testReverseStringPublic() {
 
         String string = "mere";
         string = StringManipulation.reverseStringPublic(string);
-        Assert.assertEquals("test for Reverse String method", "erem", string );
+        Assert.assertEquals("test for Reverse String method", "erem", string);
     }
 
     @Test
-    public void testDuplicateCharsPublic(){
+    public void testDuplicateCharsPublic() {
 
         String string = "mere";
         String stringArr = StringManipulation.duplicateCharsPublic(string);
-        Assert.assertEquals("test for duplicate String method", "e", stringArr );
+        Assert.assertEquals("test for duplicate String method", "e", stringArr);
     }
 
     @Test
-    public void testIsAnagramPublic(){
+    public void testIsAnagramPublic() {
 
         String str = "amer";
-        String strB= "mare";
-        boolean test = StringManipulation.isAnagramPublic(str,strB);
-        Assert.assertEquals("test for anagram checker String method", true, test );
+        String strB = "mare";
+        boolean test = StringManipulation.isAnagramPublic(str, strB);
+        Assert.assertEquals("test for anagram checker String method", true, test);
     }
 
     @Test
-    public void testIsAnagramPublicTwo(){
+    public void testIsAnagramPublicTwo() {
         String str = "anagram";
-        String strB= "margana";
-        boolean test = StringManipulation.isAnagramPublicTwo(str,strB);
-        Assert.assertEquals("test for anagram checker String method", true, test );
+        String strB = "margana";
+        boolean test = StringManipulation.isAnagramPublicTwo(str, strB);
+        Assert.assertEquals("test for anagram checker String method", true, test);
     }
 
     @Test
-    public void testContainsOnlyDigits(){
+    public void testContainsOnlyDigits() {
 
         String str = "1234";
         boolean test = StringManipulation.containsOnlyDigits(str);
-        Assert.assertEquals("test for numeric string checker method", true, test );
+        Assert.assertEquals("test for numeric string checker method", true, test);
     }
 
     @Test
-    public void testContainsOnlyDigitsError(){
+    public void testContainsOnlyDigitsError() {
 
         String str = "123z4";
         boolean test = StringManipulation.containsOnlyDigits(str);
-        Assert.assertEquals("test for numeric string checker method", false, test );
+        Assert.assertEquals("test for numeric string checker method", false, test);
     }
 
     @Test
-    public void testCountConsonantsVowels(){
+    public void testCountConsonantsVowels() {
 
         String str = "123z4";
         boolean test = StringManipulation.containsOnlyDigits(str);
-        Assert.assertEquals("test for numeric string checker method", false, test );
+        Assert.assertEquals("test for numeric string checker method", false, test);
     }
 
     @Test
-    public void testCountOccurrenceInString(){
+    public void testCountOccurrenceInString() {
 
         String str = "aio123u4nmd1ac1a";
-        int test = StringManipulation.countOccurrenceInString(str,'a');
-        Assert.assertEquals("test character occurance in string checker method", 3, test );
+        int test = StringManipulation.countOccurrenceInString(str, 'a');
+        Assert.assertEquals("test character occurance in string checker method", 3, test);
     }
 
     @Test
-    public void testFirstNonRepeat(){
+    public void testFirstNonRepeat() {
         String str = "aio123u4nmd1ac1a";
         String test = StringManipulation.firstNonRepeat(str);
-        Assert.assertEquals("test first non-repetitive char in string checker method", "i", test );
+        Assert.assertEquals("test first non-repetitive char in string checker method", "i", test);
     }
 
     @Test
-    public void testFirstNonRepeatTwo(){
+    public void testFirstNonRepeatTwo() {
         String str = "aioaio";
         String test = StringManipulation.firstNonRepeat(str);
-        Assert.assertEquals("test first non-repetitive char in string checker method", "no unique elements", test );
+        Assert.assertEquals("test first non-repetitive char in string checker method", "no unique elements", test);
     }
 
     @Test
-    public void testConvertToInt(){
+    public void testConvertToInt() {
         String str = "123412";
         int test = StringManipulation.convertToInt(str);
-        Assert.assertEquals("test first non-repetitive char in string checker method", 123412, test );
+        Assert.assertEquals("test first non-repetitive char in string checker method", 123412, test);
     }
 
     @Test
-    public void testWordOccurrence(){
+    public void testWordOccurrence() {
         String[] words = {"wor", "wor", "is", "apple", "wait", "play", "music", "play", "wor", "play"};
         String test = StringManipulation.wordOccurrence(words);
-        Assert.assertEquals("test first non-repetitive char in string checker method", "wor", test );
+        Assert.assertEquals("test first non-repetitive char in string checker method", "wor", test);
 
     }
 
@@ -111,15 +111,15 @@ public class StringManipulationTests {
     /* Hackerrank tests */
 
     @Test
-    public void testGetSmallestAndLargest(){
+    public void testGetSmallestAndLargest() {
         String str = "welcometojava";
-        String test = StringManipulation.getSmallestAndLargest(str,3);
-        Assert.assertEquals("test", "ava\n" +"wel", test);
+        String test = StringManipulation.getSmallestAndLargest(str, 3);
+        Assert.assertEquals("test", "ava\n" + "wel", test);
 
     }
 
     @Test
-    public void testReturnTokens(){
+    public void testReturnTokens() {
         String str = "                a                    ";
         String test = StringManipulation.returnTokens(str);
         Assert.assertEquals("test", "1\n" +

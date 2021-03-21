@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner (System.in);
+        Scanner sc = new Scanner(System.in);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //1. Write a Java program to convert temperature from Fahrenheit to Celsius degree.
@@ -186,19 +186,18 @@ public class Main {
         int a = sc.nextInt();
         int[] array = new int[a];
 
-        for (int j=0;j<a;j++){
+        for (int j = 0; j < a; j++) {
             System.out.println("Input the desired value in the array: ");
             array[j] = sc.nextInt();
         }
         System.out.println("Input the element to remove from the array: ");
         int b = sc.nextInt();
-        for (int i= PublicMethods.returnIndex(array,a,b); i<a-1; i++){
-            array[i]=array[i+1];
+        for (int i = PublicMethods.returnIndex(array, a, b); i < a - 1; i++) {
+            array[i] = array[i + 1];
         }
         System.out.println("The new array elements are: ");
-        for (int j=0;j<a-1;j++)
+        for (int j = 0; j < a - 1; j++)
             System.out.println(array[j]);
-
 
 
     }

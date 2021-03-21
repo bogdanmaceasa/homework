@@ -93,7 +93,7 @@ public class PublicMethods {
         if (writer != null) {
             return writer;
         }
-        return new BufferedWriter(new FileWriter(fileLocation + fileName1,true));
+        return new BufferedWriter(new FileWriter(fileLocation + fileName1, true));
     }
 
     public static void writeRaceEntry(BufferedWriter writer, RaceResults<Skier> skierRaceResults, int i) {

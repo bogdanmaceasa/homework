@@ -11,12 +11,11 @@ public class LibraryTests {
     Book book = new Book();
 
 
-
     @Test
-    public void testBookEquals(){
+    public void testBookEquals() {
 
-        boolean test = book.equals(new Book()) ;
-        Assert.assertEquals("Test equal method",true,test );
+        boolean test = book.equals(new Book());
+        Assert.assertEquals("Test equal method", true, test);
 
     }
 

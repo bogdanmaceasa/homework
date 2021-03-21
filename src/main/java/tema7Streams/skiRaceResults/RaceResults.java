@@ -38,9 +38,11 @@ public class RaceResults<T> implements Serializable {
         this.finalTime = finalTime;
     }
 
-    public void setPenalty(int penalty) { this.penalty = penalty;}
+    public void setPenalty(int penalty) {
+        this.penalty = penalty;
+    }
 
-    public String timeToString(LocalTime timeToString){
+    public String timeToString(LocalTime timeToString) {
         return timeToString.format(formatter);
     }
 
@@ -60,7 +62,9 @@ public class RaceResults<T> implements Serializable {
         return finalTime;
     }
 
-    public int getPenalty() { return penalty; }
+    public int getPenalty() {
+        return penalty;
+    }
 
 }
 

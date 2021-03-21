@@ -23,11 +23,11 @@ public class alphabeticallyOrderedListTest {
 
         Person person = alphabeticallyOrderedList.mapToPerson(line);
 
-        Assert.assertEquals("Bogdan",person.getFirstName());
-        Assert.assertEquals("Maceasa",person.getLastName());
-        Assert.assertEquals(1988,person.getDateOfBirth().getYear());
-        Assert.assertEquals(Month.JANUARY,person.getDateOfBirth().getMonth());
-        Assert.assertEquals(23,person.getDateOfBirth().getDayOfMonth());
+        Assert.assertEquals("Bogdan", person.getFirstName());
+        Assert.assertEquals("Maceasa", person.getLastName());
+        Assert.assertEquals(1988, person.getDateOfBirth().getYear());
+        Assert.assertEquals(Month.JANUARY, person.getDateOfBirth().getMonth());
+        Assert.assertEquals(23, person.getDateOfBirth().getDayOfMonth());
 
     }
 
@@ -48,19 +48,19 @@ public class alphabeticallyOrderedListTest {
 
         // When
 
-        int compare = comparatorForPerson.compare(person1,person2);
-        int compare2 = comparatorForPerson.compare(person2,person3);
-        int compare3 = comparatorForPerson.compare(person1,person3);
-        int compare4 = comparatorForPerson.compare(person4,person3);
-        int compare5 = comparatorForPerson.compare(person5,person4);
+        int compare = comparatorForPerson.compare(person1, person2);
+        int compare2 = comparatorForPerson.compare(person2, person3);
+        int compare3 = comparatorForPerson.compare(person1, person3);
+        int compare4 = comparatorForPerson.compare(person4, person3);
+        int compare5 = comparatorForPerson.compare(person5, person4);
 
 
         // Then
-        Assert.assertEquals(1,compare);
-        Assert.assertEquals(-1,compare2);
-        Assert.assertEquals(-1,compare3);
-        Assert.assertEquals(-1,compare4);
-        Assert.assertEquals(-1,compare5);
+        Assert.assertEquals(1, compare);
+        Assert.assertEquals(-1, compare2);
+        Assert.assertEquals(-1, compare3);
+        Assert.assertEquals(-1, compare4);
+        Assert.assertEquals(-1, compare5);
 
 
     }

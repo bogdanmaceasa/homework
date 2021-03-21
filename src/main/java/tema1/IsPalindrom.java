@@ -8,11 +8,11 @@ import java.util.Scanner;
 public class IsPalindrom {
 
 
-/*
-    VERSION 1
-=================================================================================================================
+    /*
+        VERSION 1
+    =================================================================================================================
 
-*/
+    */
     public static void main(String[] args) {
 
         Scanner myNumber = new Scanner(System.in);

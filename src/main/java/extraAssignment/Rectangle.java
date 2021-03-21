@@ -3,25 +3,26 @@ package extraAssignment;
 import java.util.Objects;
 
 
-public class Rectangle extends Shape{
+public class Rectangle extends Shape {
 
     private double area;
     private double perimeter;
     private double length, height;
 
-    public Rectangle(double length, double height){
-        this.length= length;
-        this.height= height;
-        this.perimeter = (this.length + this.height)*2;
-        this.area = this.length*this.height;
+    public Rectangle(double length, double height) {
+        this.length = length;
+        this.height = height;
+        this.perimeter = (this.length + this.height) * 2;
+        this.area = this.length * this.height;
     }
 
     @Override
-    public void getArea(){
-        System.out.println("Area for Triangle is: " + this.area );
+    public void getArea() {
+        System.out.println("Area for Triangle is: " + this.area);
     }
+
     @Override
-    public void getPerimeter(){
+    public void getPerimeter() {
         System.out.println("Area for Triangle is: " + this.perimeter);
     }
 

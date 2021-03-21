@@ -187,7 +187,7 @@ public class PublicMethods {
             System.out.println("=========Printed from findLongestWordInFile at: " + localTime + "=========");
             reader.lines()
                     .forEach(s -> Arrays.stream(s.split("\\s"))
-                                        .forEach(PublicMethods::findMaxLength));
+                            .forEach(PublicMethods::findMaxLength));
             System.out.println(strMaxLength);
 
         } catch (FileNotFoundException e) {
@@ -204,7 +204,7 @@ public class PublicMethods {
             System.out.println("=========Printed from findWordInFile at: " + localTime + "=========");
             reader.lines()
                     .forEach(s -> Arrays.stream(s.split("\\s"))
-                            .forEach(w -> isEqual(w,word))) ;
+                            .forEach(w -> isEqual(w, word)));
 //                            .flatMap(s -> Arrays.stream(s.split("\\s"))
 //                                .anyMatch(w -> w.equals(word)));
 
@@ -223,8 +223,8 @@ public class PublicMethods {
         }
     }
 
-    private static void isEqual(String string, String inputWord){
-        if ( string.equals(inputWord)){
+    private static void isEqual(String string, String inputWord) {
+        if (string.equals(inputWord)) {
             System.out.println("Occurance found");
         }
     }

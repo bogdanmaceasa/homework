@@ -33,12 +33,12 @@ public class Collections {
         ComparatorForPersonAndAge comparatorForTreeSet = new ComparatorForPersonAndAge();
         Set<Person> personTreeSet = new TreeSet<>(comparatorForTreeSet);
 
-        Person xHuman = new Person ( "Johan", 50);
-        Person yHuman = new Person ( "Alex", 20);
-        Person zHuman = new Person ( "Ada", 10);
-        Person wHuman = new Person ( "Sebi", 11);
-        Person uHuman = new Person ( "Hubert", 18);
-        Person ioiHuman = new Person ( "Zack", 18);
+        Person xHuman = new Person("Johan", 50);
+        Person yHuman = new Person("Alex", 20);
+        Person zHuman = new Person("Ada", 10);
+        Person wHuman = new Person("Sebi", 11);
+        Person uHuman = new Person("Hubert", 18);
+        Person ioiHuman = new Person("Zack", 18);
 
         personTreeSet.add(xHuman);
         personTreeSet.add(yHuman);
@@ -47,10 +47,10 @@ public class Collections {
         personTreeSet.add(uHuman);
         personTreeSet.add(ioiHuman);
 
-         /*   Generate Address Lists  */
+        /*   Generate Address Lists  */
 
-        List<String> addresses = List.of("Brasov","Bucuresti");
-        List<String> addresses2 = List.of("Bucuresti","Iasi","Cluj");
+        List<String> addresses = List.of("Brasov", "Bucuresti");
+        List<String> addresses2 = List.of("Bucuresti", "Iasi", "Cluj");
         List<String> addresses3 = new ArrayList<>();
 
         addresses3.add("Brasov");
@@ -60,35 +60,34 @@ public class Collections {
 
         /*   Generate Hobby Lists  */
         List<Hobby> hobbyList1 = new ArrayList<>();
-        List<Hobby> hobbyList2 = List.of(new Hobby("Tenis",10,addresses),
-                                         new Hobby("Fotbal",2,List.of("Bacau","Sibiu")));
-        List<Hobby> hobbyList3 = List.of(new Hobby("Rugby",10,addresses),
-                new Hobby("Basketball",2,List.of("Brasov","Sibiu")));
+        List<Hobby> hobbyList2 = List.of(new Hobby("Tenis", 10, addresses),
+                new Hobby("Fotbal", 2, List.of("Bacau", "Sibiu")));
+        List<Hobby> hobbyList3 = List.of(new Hobby("Rugby", 10, addresses),
+                new Hobby("Basketball", 2, List.of("Brasov", "Sibiu")));
 
-        hobbyList1.add(new Hobby("Curling",1, new ArrayList<String>(){{add("M.Ciuc");}}));
-        hobbyList1.add(new Hobby("Ping",2,addresses2));
-        hobbyList1.add(new Hobby("Pong",2,addresses3));
+        hobbyList1.add(new Hobby("Curling", 1, new ArrayList<String>() {{
+            add("M.Ciuc");
+        }}));
+        hobbyList1.add(new Hobby("Ping", 2, addresses2));
+        hobbyList1.add(new Hobby("Pong", 2, addresses3));
 
 
         /*   Generate Person - Hobby hashMap  */
         Map<Person, List<Hobby>> personHobbyMap = new HashMap<>();
 
-        for ( Person person: personTreeSet){
-            if ( person.getName().equals("Johan")
-                    || person.getName().equals("Sebi")){
-                personHobbyMap.put(person,hobbyList1);
-            } else if ( person.getName().equals("Hubert") ) {
-                personHobbyMap.put(person,hobbyList3);
-            } else personHobbyMap.put(person,hobbyList2);
+        for (Person person : personTreeSet) {
+            if (person.getName().equals("Johan")
+                    || person.getName().equals("Sebi")) {
+                personHobbyMap.put(person, hobbyList1);
+            } else if (person.getName().equals("Hubert")) {
+                personHobbyMap.put(person, hobbyList3);
+            } else personHobbyMap.put(person, hobbyList2);
         }
 
-        for (Person key : personTreeSet ){
-            System.out.println(key + " "  + personHobbyMap.get(key));
+        for (Person key : personTreeSet) {
+            System.out.println(key + " " + personHobbyMap.get(key));
         }
     }
-
-
-
 
 
 }

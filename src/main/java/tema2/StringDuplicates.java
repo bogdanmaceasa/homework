@@ -1,6 +1,7 @@
 package tema2;
 
 import tema1.PublicMethods;
+
 import java.util.Scanner;
 
 public class StringDuplicates {
@@ -19,18 +20,17 @@ public class StringDuplicates {
         char[] strArr = s.toCharArray();
 
 
-
         char[] uniqueChar = new char[length];
         int uniquePos = 0;
 
         for (int i = 0; i < length; i++) {
-            if (PublicMethods.isDouplicate(i,strArr ) && PublicMethods.isUniqueChar(strArr[i],uniqueChar )){
+            if (PublicMethods.isDouplicate(i, strArr) && PublicMethods.isUniqueChar(strArr[i], uniqueChar)) {
                 uniqueChar[uniquePos++] = strArr[i];
-                }
+            }
 
         }
         System.out.println("duplicate elements are");
-        for ( int i=0; i<uniquePos; i++){
+        for (int i = 0; i < uniquePos; i++) {
             System.out.print("'" + uniqueChar[i] + "' ");
         }
 

@@ -22,7 +22,7 @@ public class BankAccount {
     public void withdrawMoney(double balance) {
         if (this.balance >= balance) {
             this.balance -= balance;
-            System.out.println( balance + "$ have been withdrawn");
+            System.out.println(balance + "$ have been withdrawn");
         } else System.out.println("insufficient funds");
     }
 
@@ -52,7 +52,7 @@ public class BankAccount {
             return "No cards attached to this account";
         else
             for (Card card : this.attachedCardNumbers) {
-                outputString= outputString + card.toString() + "\n\n";
+                outputString = outputString + card.toString() + "\n\n";
             }
         return outputString;
     }
