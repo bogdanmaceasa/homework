@@ -31,41 +31,47 @@ public class ListProcessor {
                             .value(Double.parseDouble(strings.get(2)))
                             .deliveryDate(LocalDate.parse(strings.get(3)))
                             .build())
-                    .sorted(Comparator.comparing((PackageObject p1) -> p1.getDeliveryDate())
-                            .thenComparing(p -> p.getTargetLocation()))
+                    .sorted(Comparator.comparing(PackageObject::getDeliveryDate)
+                            .thenComparing(PackageObject::getTargetLocation))
 
                     .collect(Collectors.toList());
         } catch (IOException e) {
             log.error(e.getMessage());
         }
 
+        // all packages that are delivered to the same location
+        // on the same day will be added to a Delivery Group which will be processed separately
         List<DeliveryGroup> deliveryGroupList = new ArrayList<>();
 
-        for (int i = 0; i < packageObjects.size() - 1; i++) {
-            List<PackageObject> tempList = new ArrayList<>();
-            tempList.add(packageObjects.get(i));
-            for (int j = i + 1; j < packageObjects.size(); j++) {
+        int lastIndex = 0;
+        int firstIndex = 0;
 
-                if (packageObjects.get(j).getTargetLocation()
-                        .equals(packageObjects.get(i).getTargetLocation())
-                        && packageObjects.get(j).getDeliveryDate()
-                        .equals(packageObjects.get(i).getDeliveryDate())) {
-                    tempList.add(packageObjects.get(j));
-                    if (j == packageObjects.size() - 1) {
-                        deliveryGroupList.add(new DeliveryGroup(tempList));
-                        i = j - 1;
-                        break;
-                    }
-                } else {
-                    i = j - 1;
-                    deliveryGroupList.add(new DeliveryGroup(tempList));
-                    break;
+        for (int i = 0; i < packageObjects.size(); i++) {
+            if (sameLocationOnSameDate(packageObjects, lastIndex, i)) {
+                if (i == packageObjects.size() - 1) {
+                    List<PackageObject> transfer = new ArrayList<>(packageObjects.subList(firstIndex, i));
+                    transfer.add(packageObjects.get(i));
+                    deliveryGroupList.add(new DeliveryGroup(transfer));
                 }
-
+                lastIndex = i;
+            } else {
+                deliveryGroupList.add(new DeliveryGroup(new ArrayList<>(packageObjects.subList(firstIndex, i))));
+                if (i == packageObjects.size() - 1) {
+                    deliveryGroupList.add(new DeliveryGroup(List.of(packageObjects.get(i))));
+                }
+                firstIndex = i;
+                lastIndex = i;
             }
         }
         return deliveryGroupList;
 
+    }
+
+    private static boolean sameLocationOnSameDate(List<PackageObject> packageObjects, int lastIndex, int i) {
+        return packageObjects.get(lastIndex).getTargetLocation()
+                .equals(packageObjects.get(i).getTargetLocation())
+                && packageObjects.get(lastIndex).getDeliveryDate()
+                .equals(packageObjects.get(i).getDeliveryDate());
     }
 
 }
