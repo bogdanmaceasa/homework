@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import tema4ATM.atm.*;
+import work4ATM.atm.*;
 
 public class ATMTests {
 

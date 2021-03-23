@@ -3,7 +3,7 @@ package tema5JUNIT;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.InjectMocks;
-import tema3Library.Book;
+import work3Library.Book;
 
 public class LibraryTests {
 

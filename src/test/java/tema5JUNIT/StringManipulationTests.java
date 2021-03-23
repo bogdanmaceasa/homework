@@ -5,7 +5,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
-import tema4ATM.StringManipulation;
+import work4ATM.StringManipulation;
 
 
 @RunWith(MockitoJUnitRunner.class)

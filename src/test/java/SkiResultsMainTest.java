@@ -3,10 +3,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.MockitoJUnitRunner;
-import tema7Streams.skiRaceResults.ComparatorForResults;
-import tema7Streams.skiRaceResults.PublicMethods;
-import tema7Streams.skiRaceResults.RaceResults;
-import tema7Streams.skiRaceResults.Skier;
+import work7Streams.skiRaceResults.ComparatorForResults;
+import work7Streams.skiRaceResults.PublicMethods;
+import work7Streams.skiRaceResults.RaceResults;
+import work7Streams.skiRaceResults.Skier;
 
 import java.util.List;
 import java.util.stream.Collectors;

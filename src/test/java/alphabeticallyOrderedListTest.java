@@ -3,9 +3,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.MockitoJUnitRunner;
-import tema8Java8.alphabeticallyOrderedList.ComparatorForPerson;
-import tema8Java8.alphabeticallyOrderedList.Person;
-import tema8Java8.alphabeticallyOrderedList.PublicMethods;
+import work8Java8.alphabeticallyOrderedList.ComparatorForPerson;
+import work8Java8.alphabeticallyOrderedList.Person;
+import work8Java8.alphabeticallyOrderedList.PublicMethods;
 
 import java.time.Month;
 
