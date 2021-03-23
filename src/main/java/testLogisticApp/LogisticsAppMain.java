@@ -1,11 +1,11 @@
 package testLogisticApp;
 
 import lombok.extern.log4j.Log4j;
+import testLogisticApp.Entities.DeliveryGroup;
 
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 
 @Log4j

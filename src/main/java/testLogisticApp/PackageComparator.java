@@ -1,5 +1,7 @@
 package testLogisticApp;
 
+import testLogisticApp.Entities.PackageObject;
+
 import java.util.Comparator;
 
 public class PackageComparator implements Comparator<PackageObject> {

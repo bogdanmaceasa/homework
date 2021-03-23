@@ -1,4 +1,4 @@
-package testLogisticApp;
+package testLogisticApp.Entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

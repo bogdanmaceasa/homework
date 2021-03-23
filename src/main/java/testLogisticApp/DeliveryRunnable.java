@@ -3,6 +3,8 @@ package testLogisticApp;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.extern.log4j.Log4j;
+import testLogisticApp.Entities.DeliveryGroup;
+import testLogisticApp.Entities.PackageObject;
 
 import static java.lang.Thread.sleep;
 
@@ -15,7 +17,7 @@ public class DeliveryRunnable implements Runnable {
 
     @Override
     public synchronized void run() {
-        for (PackageObject packageObject : this.deliveryGroup.sameRoute) {
+        for (PackageObject packageObject : this.deliveryGroup.getSameRoute()) {
             try {
                 System.out.println("[Delivering for <"
                         + packageObject.getTargetLocation()
@@ -31,9 +33,9 @@ public class DeliveryRunnable implements Runnable {
 
         }
         System.out.println("Delivery Group TO <"
-                +this.deliveryGroup.sameRoute.get(0).getTargetLocation()
-                +"> total value of delivered packages is " +this.deliveryGroup.groupValue
+                +this.deliveryGroup.getSameRoute().get(0).getTargetLocation()
+                +"> total value of delivered packages is " +this.deliveryGroup.getGroupValue()
                 +" and revenue is "
-                +this.deliveryGroup.groupRevenue);
+                +this.deliveryGroup.getGroupRevenue());
     }
 }

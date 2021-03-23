@@ -2,6 +2,8 @@ package testLogisticApp;
 
 
 import lombok.extern.log4j.Log4j;
+import testLogisticApp.Entities.DeliveryGroup;
+import testLogisticApp.Entities.PackageObject;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -40,7 +42,6 @@ public class ListProcessor {
         List<DeliveryGroup> deliveryGroupList = new ArrayList<>();
 
         for (int i = 0; i < packageObjects.size() - 1; i++) {
-//          Creating new temp list to store all elements that have the same destination and date as the current index
             List<PackageObject> tempList = new ArrayList<>();
             tempList.add(packageObjects.get(i));
             for (int j = i + 1; j < packageObjects.size(); j++) {
@@ -50,14 +51,13 @@ public class ListProcessor {
                         && packageObjects.get(j).getDeliveryDate()
                         .equals(packageObjects.get(i).getDeliveryDate())) {
                     tempList.add(packageObjects.get(j));
-                    if ( j== packageObjects.size()-1){
+                    if (j == packageObjects.size() - 1) {
                         deliveryGroupList.add(new DeliveryGroup(tempList));
-                        i=j-1;
+                        i = j - 1;
                         break;
                     }
                 } else {
-//              Once the equality condition is false, we store the List constructed until now in the Delivery Group List.
-                    i = j-1;
+                    i = j - 1;
                     deliveryGroupList.add(new DeliveryGroup(tempList));
                     break;
                 }

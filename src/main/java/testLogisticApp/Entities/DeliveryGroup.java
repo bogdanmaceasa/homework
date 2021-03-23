@@ -1,6 +1,5 @@
-package testLogisticApp;
+package testLogisticApp.Entities;
 
-import com.sun.xml.bind.v2.runtime.reflect.Lister;
 import lombok.*;
 
 import java.util.List;
@@ -8,6 +7,7 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @ToString
+@Data
 public class DeliveryGroup {
 
     List<PackageObject> sameRoute;
@@ -16,7 +16,7 @@ public class DeliveryGroup {
 
     double groupRevenue;
 
-    DeliveryGroup (List<PackageObject> sameRoute) {
+    public DeliveryGroup (List<PackageObject> sameRoute) {
         this.sameRoute = sameRoute;
         setGroupRevenue();
         setGroupValue();
