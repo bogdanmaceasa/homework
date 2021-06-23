@@ -20,13 +20,19 @@ public class CSVMain {
         File file = new File(fileLocation + fileName);
         File file1 = new File(fileLocation + fileName1);
         File file2 = new File(fileLocation + fileName2);
+        File sessionFileName = new File(fileLocation +"session_NUE.txt");
+        File sessionFileName1 = new File(fileLocation +"session_MNL.txt");
+        File sessionFileName2 = new File(fileLocation +"session_MAS.txt");
 
-        if (outFile.exists()) {
-            outFile.delete();
+        if (outFile2.exists()) {
+            outFile2.delete();
+        }
+        if (sessionFileName2.exists()) {
+            sessionFileName2.delete();
         }
 
         try {
-            Files.lines(file.toPath())
+            Files.lines(file2.toPath())
                     .map(csvManipulation.PublicMethods::mapLine)
                     .forEach(PublicMethods::printResultsToFile);
 
