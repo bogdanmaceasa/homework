@@ -16,20 +16,20 @@ public class DeliveryGroup {
 
     double groupRevenue;
 
-    public DeliveryGroup (List<PackageObject> sameRoute) {
+    public DeliveryGroup(List<PackageObject> sameRoute) {
         this.sameRoute = sameRoute;
         setGroupRevenue();
         setGroupValue();
     }
 
     public void setGroupRevenue() {
-        for (PackageObject packageObject : this.sameRoute){
+        for (PackageObject packageObject : this.sameRoute) {
             this.groupRevenue += packageObject.getDistance();
         }
     }
 
     public void setGroupValue() {
-        for (PackageObject packageObject : this.sameRoute){
+        for (PackageObject packageObject : this.sameRoute) {
             this.groupValue += packageObject.getValue();
         }
     }

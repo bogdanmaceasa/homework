@@ -199,7 +199,6 @@ public class Main {
         for (int j = 0; j < a - 1; j++)
             System.out.println(array[j]);
 
-
     }
 
 }

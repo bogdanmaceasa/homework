@@ -33,9 +33,9 @@ public class DeliveryRunnable implements Runnable {
 
         }
         System.out.println("Delivery Group TO <"
-                +this.deliveryGroup.getSameRoute().get(0).getTargetLocation()
-                +"> total value of delivered packages is " +this.deliveryGroup.getGroupValue()
-                +" and revenue is "
-                +this.deliveryGroup.getGroupRevenue());
+                + this.deliveryGroup.getSameRoute().get(0).getTargetLocation()
+                + "> total value of delivered packages is " + this.deliveryGroup.getGroupValue()
+                + " and revenue is "
+                + this.deliveryGroup.getGroupRevenue());
     }
 }

@@ -20,7 +20,7 @@ public class LogisticsAppMain {
 
         List<DeliveryGroup> packageObjectList = ListProcessor.CSVFileToPackage(file);
 
-        for ( DeliveryGroup tempList : packageObjectList){
+        for (DeliveryGroup tempList : packageObjectList) {
             Thread deliveryRun = new Thread(new DeliveryRunnable(tempList));
             deliveryRun.start();
             try {

@@ -34,6 +34,7 @@ public class Library {
 
         }
 
+
         System.out.println();
         libraryDataBase[4].checkOutBook();
         libraryDataBase[5].checkOutBook();
@@ -51,7 +52,8 @@ public class Library {
         System.out.println();
         Novel book9 = (Novel) libraryDataBase[7];
         System.out.println("novel type " + book9.getNovelType());
-        ;
+        System.out.println("novel type " + libraryDataBase[7]);
+
         System.out.println(book9.toString());
         System.out.println();
 //      datatype of reference is changed in casting. it points to the same instance - which is a Novel object.
