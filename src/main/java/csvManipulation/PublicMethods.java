@@ -22,9 +22,9 @@ public class PublicMethods {
         String genesysRP = fields[1];
         return "id " + "translate-"+ carrierDDI + "-to-" + genesysRP + "\n"
                 + "type replace" + "\n"
-                + "add-string " + carrierDDI + "\n"
+                + "add-string " + genesysRP + "\n"
                 + "add-index 0" + "\n"
-                + "delete-string " + genesysRP + "\n"
+                + "delete-string " + carrierDDI + "\n"
                 + "delete-index 0" + "\n";
     }
 
@@ -36,9 +36,9 @@ public class PublicMethods {
         if (writer != null) {
             return writer;
         }
-//        return new BufferedWriter(new FileWriter(fileLocation + fileName, true));
+        return new BufferedWriter(new FileWriter(fileLocation + fileName, true));
 //        return new BufferedWriter(new FileWriter(fileLocation + fileName1, true));
-        return new BufferedWriter(new FileWriter(fileLocation + fileName2, true));
+//        return new BufferedWriter(new FileWriter(fileLocation + fileName2, true));
     }
 
     public static void writeRaceEntry(BufferedWriter writer, String line) {

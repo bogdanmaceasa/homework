@@ -21,12 +21,12 @@ public class CSVMain {
         File file1 = new File(fileLocation + fileName1);
         File file2 = new File(fileLocation + fileName2);
 
-        if (outFile2.exists()) {
-            outFile2.delete();
+        if (outFile.exists()) {
+            outFile.delete();
         }
 
         try {
-            Files.lines(file2.toPath())
+            Files.lines(file.toPath())
                     .map(csvManipulation.PublicMethods::mapLine)
                     .forEach(PublicMethods::printResultsToFile);
 
